@@ -66,7 +66,7 @@ public class MusicManager : MonoBehaviour {
 		// if new clip added to next track audiosource, crossfade audiosources
 		if (nextTrack.clip != null && nextTrack.clip != currentTrack.clip) 
 		{
-			currentTrack.volume = Mathf.Lerp (currentTrack.volume, 0, Time.time);
+			currentTrack.volume = Mathf.Lerp (currentTrack.volume, 0, Time.time );
 			nextTrack.volume = Mathf.Lerp (nextTrack.volume, 1 * volumeMult, Time.time);
 			nextTrack.Play ();
 
@@ -115,6 +115,13 @@ public class MusicManager : MonoBehaviour {
 		sFX.volume = volume;
 		sFX.Play ();
 	}
+
+	public void PlaySFX(AudioClip clip) {
+		SetClip__SFX (clip);
+		sFX.Play ();
+	}
+
+
 
 	public void FadeInTheme() {
 		nextTrack.volume = Mathf.Lerp (nextTrack.volume, themeVolume, Time.time * smoothing);
