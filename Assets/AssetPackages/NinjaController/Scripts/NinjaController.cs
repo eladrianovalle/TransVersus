@@ -91,14 +91,14 @@ namespace NinjaController {
       allRenderers = new List<Renderer>(GetComponentsInChildren<Renderer>(true));
     }
       
-    public void Update() {
+	public void ProcessInputFromPlayer(bool jumpInput, float moveInput) {
 
       //let's reset forces to 0 and then add regular gravitation
       SimResetForce();
       SimAddForce(new Vector2(0, PhysicsParams.gameGravity) * EntityMass);
 
       //process key input (like jumping key pressed, etc...)
-      ProcessInput();
+	ProcessInput(jumpInput, moveInput);
 
       //simulate position and velocity based on all acting forces
       ComputeVelocity(Time.deltaTime);
@@ -130,10 +130,17 @@ namespace NinjaController {
       RBody.velocity = currentVelocity;
     }
 
-    private void ProcessInput() {
+//	public void ProcessInputFromPlayer()
+//	{
+//		ProcessInput ();	
+//	}
 
-      bool isKeyDownJump = Input.GetButton("Jump");
-      float inputAxisX = Input.GetAxisRaw("Horizontal");
+		private void ProcessInput(bool jumpInput, float moveInput) {
+
+			bool isKeyDownJump = jumpInput;
+//				Input.GetButton("Jump");
+			float inputAxisX = moveInput;
+//				Input.GetAxisRaw("Horizontal");
       bool isKeyDownLeft = inputAxisX < -0.5f;
       bool isKeyDownRight = inputAxisX > 0.5f;
 
