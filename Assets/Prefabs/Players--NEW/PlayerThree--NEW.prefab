@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 58626436827958728}
   - component: {fileID: 114739695132896946}
   - component: {fileID: 114673123385165618}
+  - component: {fileID: 114947156712896534}
   m_Layer: 17
   m_Name: Weapon
   m_TagString: Weapon
@@ -326,6 +327,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114947156712896534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702223387278866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212247711900155996
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -402,7 +414,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4b3d4caeee60a4b888b224e45bdee8dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.88, y: 0.92}

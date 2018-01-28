@@ -62,8 +62,9 @@ public class Ball : MonoBehaviour {
 	{
 		StartCoroutine(ShowBall (false));
 		playerInPossession = player;
-		this.transform.parent = player.transform;
-		this.transform.position = transform.parent.position;
+		playerInPossession.hasBall = true;
+//		this.transform.parent = player.transform;
+//		this.transform.position = transform.parent.position;
 	}
 
 	public void DropBall()
@@ -71,7 +72,7 @@ public class Ball : MonoBehaviour {
 		playerInPossession.hasBall = false;
 		playerInPossession = null;
 		this.transform.position = transform.parent.position + transform.parent.transform.right;
-		this.transform.parent = null;
+//		this.transform.parent = null;
 		StartCoroutine(ShowBall (true));
 	}
 
@@ -79,7 +80,7 @@ public class Ball : MonoBehaviour {
 	{
 		playerInPossession = player;
 		playerInPossession.hasBall = true;
-		this.transform.parent = player.transform;
+//		this.transform.parent = player.transform;
 	}
 
 

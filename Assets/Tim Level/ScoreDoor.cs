@@ -19,25 +19,30 @@ public class ScoreDoor : MonoBehaviour {
 		playerIsRed = false;
 		playerIsBlue = false;
 	}
-	
 
-
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) 
+	{
 		playerOnButton = true;
 		doorPressedSound.Play ();
 		spriteRenderer.sprite = buttonPressed;
 		playerScript = other.gameObject.GetComponent<Player> ();
 
-		if (playerScript.playerTeam == Player.Team.Blue) {
+		if (playerScript.playerTeam == Player.Team.Blue) 
+		{
 			playerIsBlue = true;
-		} else if (playerScript.playerTeam == Player.Team.Red) {
+		} 
+		else if (playerScript.playerTeam == Player.Team.Red) 
+		{
 			playerIsRed = true;
-		} else {
+		} 
+		else 
+		{
 			Debug.LogError ("Player Team Enum not set");
 		}
 
 		// check to see if you of the person on the other Door has the ball.
-		if (playerScript.hasBall == true || myLinkedScoreDoor.gameObject.GetComponent<Player> ().hasBall == true) {
+		if (playerScript.hasBall == true || myLinkedScoreDoor.gameObject.GetComponent<Player> ().hasBall == true) 
+		{
 
 			// check to see if there is someone of the other Door.
 			if (myLinkedScoreDoor.gameObject.GetComponent<ScoreDoor> ().playerOnButton == true) {
