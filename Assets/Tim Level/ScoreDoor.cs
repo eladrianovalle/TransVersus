@@ -7,7 +7,10 @@ public class ScoreDoor : MonoBehaviour {
 	public Sprite buttonPressed, doorOpen, buttonIdle;
 	public bool playerOnButton, playerIsRed, playerIsBlue, playerOnOtherScoreDoor, onSameTeam, playerCanScore;
 	public AudioSource doorPressedSound, doorOpenSound;
-	public Player playerScript;
+
+	public Player playerOnThisDoor;
+	public Player playerOnOtherDoor;
+
 	public ScoreDoor myLinkedScoreDoor;
 
 	private SpriteRenderer spriteRenderer;
@@ -24,8 +27,33 @@ public class ScoreDoor : MonoBehaviour {
 	}
 //	(myvariabvle != null)
 
-	void Update(){
-		if (playerOnOtherScoreDoor == true) {
+	void Update()
+	{
+
+		if (playerOnThisDoor != null)
+		{
+			
+		}
+
+		if (myLinkedScoreDoor.playerOnThisDoor != null)
+		{
+			if (myLinkedScoreDoor.playerIsBlue == true && playerIsBlue == true) {
+				print ("blue team");
+				onSameTeam = true;
+			} else if (myLinkedScoreDoor.playerIsRed == true && playerIsRed == true) {
+				onSameTeam = true;
+				print ("red team");
+			} else {
+				onSameTeam = false;
+			}
+		}
+
+
+
+
+
+		if (playerOnOtherScoreDoor == true) 
+		{
 			Player playerOnOtherDoor = myLinkedScoreDoor.GetComponent<Player> ();
 
 			if (myLinkedScoreDoor.playerIsBlue == true && playerIsBlue == true) {
@@ -44,7 +72,7 @@ public class ScoreDoor : MonoBehaviour {
 	{
 		if (other.tag == "Player")
 		{
-			playerScript = other.gameObject.GetComponent<Player> ();
+			playerOnThisDoor = other.gameObject.GetComponent<Player> ();
 		}
 
 		playerOnButton = true;
@@ -52,13 +80,13 @@ public class ScoreDoor : MonoBehaviour {
 		spriteRenderer.sprite = buttonPressed;
 //		playerScript = other.gameObject.GetComponent<Player> ();
 
-		if (playerScript != null)
+		if (playerOnThisDoor != null)
 		{
-			if (playerScript.playerTeam == Player.Team.Blue) 
+			if (playerOnThisDoor.playerTeam == Player.Team.Blue) 
 			{
 				playerIsBlue = true;
 			} 
-			else if (playerScript.playerTeam == Player.Team.Red) 
+			else if (playerOnThisDoor.playerTeam == Player.Team.Red) 
 			{
 				playerIsRed = true;
 			} 

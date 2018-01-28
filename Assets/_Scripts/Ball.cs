@@ -81,11 +81,15 @@ public class Ball : MonoBehaviour {
 
 	public void PickupBall(Player player)
 	{
-		canBePickedUp = false;
-		playerInPossession = player;
-		playerInPossession.hasBall = true;
-		canScore = true;
-		DisappearBall ();
+		if (player != null)
+		{
+			canBePickedUp = false;
+			playerInPossession = player;
+			playerInPossession.hasBall = true;
+			canScore = true;
+			DisappearBall ();
+		}
+
 
 //		this.transform.parent = player.transform;
 //		this.transform.position = transform.parent.position;
