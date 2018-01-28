@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	public bool isAttacking;
 	public float playerMovement;
 
+	public bool hasBall;
+
 	public enum PlayerID
 	{
 		PlayerOne, PlayerTwo, PlayerThree, PlayerFour

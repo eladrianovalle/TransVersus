@@ -27,19 +27,13 @@ public class Ball : MonoBehaviour {
 	
 	void Update () 
 	{
-		if (playerInPossession.isAttacking)
+		if (playerInPossession != null)
 		{
-			DropBall ();
+			if (playerInPossession.isAttacking)
+			{
+				DropBall ();
+			}
 		}
-
-//		if (isVisibe) 
-//		{
-//			ShowBall (true);
-//		} 
-//		else 
-//		{
-//			ShowBall (false);
-//		}
 		
 	}
 
@@ -52,17 +46,21 @@ public class Ball : MonoBehaviour {
 		}
 	}
 
-	public void ShowBall(bool showBall)
+	public IEnumerator ShowBall(bool showBall)
 	{
 		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-		coll.enabled = isVisibe;
 		rBody.isKinematic = !isVisibe;
+
+		var timeToWait = 0.0f;
+		if (!isVisibe) {timeToWait = 1f;}
+		yield return new WaitForSecondsRealtime (timeToWait);
+		coll.enabled = isVisibe;
 	}
 
 	public void PickupBall(Player player)
 	{
-		ShowBall (false);
+		StartCoroutine(ShowBall (false));
 		playerInPossession = player;
 		this.transform.parent = player.transform;
 		this.transform.position = transform.parent.position;
@@ -71,9 +69,9 @@ public class Ball : MonoBehaviour {
 	public void DropBall()
 	{
 		playerInPossession = null;
-		this.transform.position = transform.parent.position;
+		this.transform.position = transform.parent.position + transform.forward;
 		this.transform.parent = null;
-		ShowBall (true);
+		StartCoroutine(ShowBall (true));
 	}
 
 	public void PassBall(Player player)
