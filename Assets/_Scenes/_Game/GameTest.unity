@@ -383,6 +383,63 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42917436}
+--- !u!1001 &124947505
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 32.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844728214238340, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_Name
+      value: ScoreDoor--L (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+        type: 2}
+      propertyPath: myLinkedScoreDoor
+      value: 
+      objectReference: {fileID: 937620352}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &124947506 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+    type: 2}
+  m_PrefabInternal: {fileID: 124947505}
+  m_Script: {fileID: 11500000, guid: fb8eb1a6bf435483dabb3a657ffed94a, type: 3}
 --- !u!1 &294816685
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,35 +877,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 212263642386028880, guid: 2923f5b602f354dc9b32efef04a333ad,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.35599995
-      objectReference: {fileID: 0}
-    - target: {fileID: 212263642386028880, guid: 2923f5b602f354dc9b32efef04a333ad,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2923f5b602f354dc9b32efef04a333ad, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &642522351 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1085322280762156, guid: 2923f5b602f354dc9b32efef04a333ad,
-    type: 2}
-  m_PrefabInternal: {fileID: 642522350}
---- !u!114 &642522352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 642522351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &746949113
 Prefab:
   m_ObjectHideFlags: 0
@@ -1234,9 +1265,20 @@ Prefab:
       propertyPath: m_Name
       value: ScoreDoor--R
       objectReference: {fileID: 0}
+    - target: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+        type: 2}
+      propertyPath: myLinkedScoreDoor
+      value: 
+      objectReference: {fileID: 2116795047}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &894390913 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+    type: 2}
+  m_PrefabInternal: {fileID: 894390912}
+  m_Script: {fileID: 11500000, guid: fb8eb1a6bf435483dabb3a657ffed94a, type: 3}
 --- !u!1 &901153920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,6 +1315,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 164}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1001 &937620351
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 32.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060815112828570, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844728214238340, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+      propertyPath: m_Name
+      value: ScoreDoor--R (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+        type: 2}
+      propertyPath: myLinkedScoreDoor
+      value: 
+      objectReference: {fileID: 124947506}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &937620352 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+    type: 2}
+  m_PrefabInternal: {fileID: 937620351}
+  m_Script: {fileID: 11500000, guid: fb8eb1a6bf435483dabb3a657ffed94a, type: 3}
 --- !u!1 &962250632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,40 +1574,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 212774703783399662, guid: a94c7e4cc3a8f49609c9e410cb66190f,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212774703783399662, guid: a94c7e4cc3a8f49609c9e410cb66190f,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.09019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 212774703783399662, guid: a94c7e4cc3a8f49609c9e410cb66190f,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a94c7e4cc3a8f49609c9e410cb66190f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1181338280 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1763067010077802, guid: a94c7e4cc3a8f49609c9e410cb66190f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1181338279}
---- !u!114 &1181338281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1181338280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1190248224
 Prefab:
   m_ObjectHideFlags: 0
@@ -1548,40 +1616,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 212880486780479216, guid: 54f68ca51a3074f17bcd231368e4bc7d,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.35599995
-      objectReference: {fileID: 0}
-    - target: {fileID: 212880486780479216, guid: 54f68ca51a3074f17bcd231368e4bc7d,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212514940480795138, guid: 54f68ca51a3074f17bcd231368e4bc7d,
-        type: 2}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54f68ca51a3074f17bcd231368e4bc7d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1190248225 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1839227771251476, guid: 54f68ca51a3074f17bcd231368e4bc7d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1190248224}
---- !u!114 &1190248226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1190248225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1324314196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,6 +2807,17 @@ Prefab:
       propertyPath: m_Name
       value: ScoreDoor--L
       objectReference: {fileID: 0}
+    - target: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+        type: 2}
+      propertyPath: myLinkedScoreDoor
+      value: 
+      objectReference: {fileID: 894390913}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2116795047 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114267227794972714, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+    type: 2}
+  m_PrefabInternal: {fileID: 2116795046}
+  m_Script: {fileID: 11500000, guid: fb8eb1a6bf435483dabb3a657ffed94a, type: 3}
