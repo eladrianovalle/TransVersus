@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Ball
+  - Ground
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -20,12 +22,12 @@ TagManager:
   - Player3
   - Player4
   - Ball
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Wall
+  - WeaponP1
+  - WeaponP2
+  - WeaponP3
+  - WeaponP4
   - 
   - 
   - 
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3947030343
     locked: 0

@@ -26,24 +26,42 @@ public class Player : MonoBehaviour {
 
 	public PlayerID thisPlayer;
 	public Team playerTeam;
-	public NinjaController.NinjaController playerController;
+
+	public UnityStandardAssets._2D.PlatformerCharacter2D characterController;
+//	public NinjaController.NinjaController playerController;
+
+	public Weapon weapon;
 
 	void Awake () {
 		player = ReInput.players.GetPlayer (playerID);
+		weapon = GetComponentInChildren<Weapon> ();
+		characterController = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ();
 	}
 	
 	void Update () 
 	{
-		isJumping = player.GetButton ("Jump");
-		isAttacking = player.GetButton ("Attack");
+		isJumping = player.GetButtonDown ("Jump");
+		isAttacking = player.GetButtonDown ("Attack");
 		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-		playerController.ProcessInputFromPlayer (isJumping, playerMovement);
+//		if (playerController != null)
+//		{
+//			playerController.ProcessInputFromPlayer (isJumping, playerMovement);
+//		}
 
-		if (isAttacking)
+		if (isJumping)
 		{
-			Debug.Log (this.name + " is Attacking!!!");
+//			Debug.Log (this.name + " is Jumping!!!");
 		}
+
+		if (isAttacking) {
+			Debug.Log (this.name + " is Attacking!!!");
+			weapon.gameObject.SetActive (true);
+		} 
+//		else 
+//		{
+//			weapon.gameObject.SetActive (false);
+//		}
 		
 	}
 }
