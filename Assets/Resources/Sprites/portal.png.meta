@@ -1,0 +1,456 @@
+fileFormatVersion: 2
+guid: eb39f50a9744449d7a0a4ae94be5465a
+timeCreated: 1517144913
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: portal_0
+    21300002: portal_1
+    21300004: portal_2
+    21300006: portal_3
+    21300008: portal_4
+    21300010: portal_5
+    21300012: portal_6
+    21300014: portal_7
+    21300016: portal_8
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1280
+        width: 290
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 145, y: 213}
+        - {x: 56, y: 280}
+        - {x: -81, y: 280}
+        - {x: -92, y: 276}
+        - {x: -145, y: 125}
+        - {x: -145, y: -191}
+        - {x: -125, y: -172}
+        - {x: -123, y: -170}
+        - {x: -76, y: -239}
+        - {x: -52, y: -274}
+        - {x: -9, y: -280}
+        - {x: 81, y: -280}
+        - {x: 108, y: -254}
+        - {x: 144, y: -57}
+        - {x: 145, y: -53}
+      - - {x: 48, y: -243}
+        - {x: 62, y: -243}
+        - {x: 62, y: -247}
+        - {x: 48, y: -247}
+      - - {x: 68, y: -233}
+        - {x: 72, y: -233}
+        - {x: 72, y: -237}
+        - {x: 68, y: -237}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1260
+        width: 310
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -121, y: 295}
+        - {x: -155, y: 137}
+        - {x: -155, y: -227}
+        - {x: -103, y: -277}
+        - {x: -26, y: -295}
+        - {x: 130, y: -295}
+        - {x: 155, y: -212}
+        - {x: 155, y: 203}
+        - {x: 85, y: 295}
+      - - {x: 48, y: -248}
+        - {x: 52, y: -248}
+        - {x: 52, y: -252}
+        - {x: 48, y: -252}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_2
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 1250
+        width: 310
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65, y: 305}
+        - {x: -123, y: 279}
+        - {x: -155, y: 174}
+        - {x: -155, y: -159}
+        - {x: -52, y: -305}
+        - {x: 85, y: -305}
+        - {x: 155, y: -44}
+        - {x: 155, y: 164}
+        - {x: 52, y: 305}
+      - - {x: 10, y: -259}
+        - {x: 25, y: -258}
+        - {x: 28, y: -255}
+        - {x: 32, y: -262}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 610
+        width: 320
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 310}
+        - {x: -20, y: 310}
+        - {x: -94, y: 212}
+        - {x: -158, y: 103}
+        - {x: -160, y: 98}
+        - {x: -160, y: -171}
+        - {x: -105, y: -310}
+        - {x: 112, y: -310}
+        - {x: 160, y: -133}
+        - {x: 160, y: 138}
+        - {x: 61, y: 294}
+      - - {x: -27, y: -263}
+        - {x: -23, y: -263}
+        - {x: -23, y: -267}
+        - {x: -27, y: -267}
+      - - {x: -37, y: -253}
+        - {x: -33, y: -253}
+        - {x: -33, y: -257}
+        - {x: -37, y: -257}
+      - - {x: -47, y: -203}
+        - {x: -43, y: -203}
+        - {x: -43, y: -207}
+        - {x: -47, y: -207}
+      - - {x: -127, y: 87}
+        - {x: -123, y: 87}
+        - {x: -123, y: 83}
+        - {x: -127, y: 83}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 620
+        width: 310
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 129, y: -178}
+        - {x: 155, y: -122}
+        - {x: 155, y: 137}
+        - {x: 81, y: 290}
+        - {x: 33, y: 290}
+        - {x: 31, y: 279}
+        - {x: 42, y: 276}
+        - {x: 43, y: 260}
+        - {x: 45, y: 258}
+        - {x: 37, y: 252}
+        - {x: 37, y: 271}
+        - {x: 8, y: 290}
+        - {x: -39, y: 290}
+        - {x: -155, y: 192}
+        - {x: -155, y: -43}
+        - {x: -88, y: -288}
+        - {x: -53, y: -290}
+        - {x: -3, y: -290}
+        - {x: -1, y: -269}
+        - {x: -15, y: -258}
+        - {x: 28, y: -273}
+      - - {x: -52, y: -233}
+        - {x: -48, y: -233}
+        - {x: -48, y: -237}
+        - {x: -52, y: -237}
+      - - {x: 128, y: -43}
+        - {x: 132, y: -43}
+        - {x: 132, y: -57}
+        - {x: 128, y: -57}
+      - - {x: -122, y: 127}
+        - {x: -118, y: 127}
+        - {x: -118, y: 113}
+        - {x: -122, y: 113}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_5
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 630
+        width: 300
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: -238}
+        - {x: -60, y: -232}
+        - {x: -40, y: -252}
+        - {x: 41, y: -254}
+        - {x: 150, y: -179}
+        - {x: 150, y: 96}
+        - {x: 144, y: 199}
+        - {x: 82, y: 280}
+        - {x: 45, y: 280}
+        - {x: 46, y: 259}
+        - {x: 57, y: 256}
+        - {x: 58, y: 240}
+        - {x: 60, y: 238}
+        - {x: 52, y: 232}
+        - {x: 54, y: 251}
+        - {x: 14, y: 280}
+        - {x: -90, y: 280}
+        - {x: -150, y: 202}
+        - {x: -150, y: -126}
+        - {x: -109, y: -260}
+        - {x: -73, y: -280}
+        - {x: -18, y: -280}
+        - {x: -16, y: -269}
+        - {x: -38, y: -256}
+        - {x: -57, y: -238}
+      - - {x: -117, y: 157}
+        - {x: -113, y: 157}
+        - {x: -113, y: 153}
+        - {x: -117, y: 153}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 280
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: -209}
+        - {x: -84, y: -221}
+        - {x: -61, y: -234}
+        - {x: -54, y: -252}
+        - {x: -16, y: -270}
+        - {x: 1, y: -270}
+        - {x: 69, y: -258}
+        - {x: 136, y: -172}
+        - {x: 140, y: -146}
+        - {x: 140, y: -108}
+        - {x: 130, y: -108}
+        - {x: 140, y: -97}
+        - {x: 140, y: 111}
+        - {x: 121, y: 270}
+        - {x: -56, y: 270}
+        - {x: -74, y: 261}
+        - {x: -136, y: 203}
+        - {x: -140, y: 185}
+        - {x: -140, y: 165}
+        - {x: -129, y: 166}
+        - {x: -108, y: 187}
+        - {x: -122, y: 143}
+        - {x: -140, y: 82}
+        - {x: -140, y: -188}
+        - {x: -139, y: -205}
+        - {x: -103, y: -270}
+        - {x: -68, y: -270}
+        - {x: -66, y: -249}
+        - {x: -76, y: -229}
+        - {x: -87, y: -226}
+      - - {x: 103, y: -133}
+        - {x: 107, y: -133}
+        - {x: 107, y: -137}
+        - {x: 103, y: -137}
+      - - {x: 83, y: 217}
+        - {x: 87, y: 217}
+        - {x: 87, y: 193}
+        - {x: 83, y: 193}
+      - - {x: -97, y: 207}
+        - {x: -93, y: 207}
+        - {x: -93, y: 203}
+        - {x: -97, y: 203}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_7
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 10
+        width: 280
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 74, y: 270}
+        - {x: -112, y: 270}
+        - {x: -120, y: 269}
+        - {x: -140, y: 219}
+        - {x: -140, y: -260}
+        - {x: -119, y: -232}
+        - {x: -105, y: -211}
+        - {x: -109, y: -186}
+        - {x: -94, y: -201}
+        - {x: -84, y: -231}
+        - {x: -73, y: -242}
+        - {x: -33, y: -270}
+        - {x: 80, y: -270}
+        - {x: 140, y: -243}
+        - {x: 140, y: 221}
+      - - {x: 83, y: -203}
+        - {x: 87, y: -203}
+        - {x: 87, y: -207}
+        - {x: 83, y: -207}
+      - - {x: -67, y: 237}
+        - {x: -63, y: 237}
+        - {x: -63, y: 233}
+        - {x: -67, y: 233}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: portal_8
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 0
+        width: 290
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -76, y: 280}
+        - {x: -109, y: 268}
+        - {x: -145, y: 124}
+        - {x: -145, y: -209}
+        - {x: -144, y: -219}
+        - {x: -125, y: -202}
+        - {x: -123, y: -200}
+        - {x: -70, y: -280}
+        - {x: 105, y: -280}
+        - {x: 145, y: -262}
+        - {x: 145, y: 197}
+        - {x: 51, y: 280}
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
