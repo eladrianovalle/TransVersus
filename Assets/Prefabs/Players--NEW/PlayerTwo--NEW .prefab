@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212263642386028880}
   - component: {fileID: 58566952450532634}
   - component: {fileID: 114664790488945726}
+  - component: {fileID: 114978443315102462}
   m_Layer: 16
   m_Name: Weapon
   m_TagString: Weapon
@@ -273,9 +274,9 @@ MonoBehaviour:
   isAttacking: 0
   playerMovement: 0
   isStunned: 0
-  regularSprite: {fileID: 0}
-  stunnedSprite: {fileID: 0}
-  holdingBallSprite: {fileID: 0}
+  regularSprite: {fileID: 21300000, guid: dd8ba2d9206084ca69e5b8efe019bbaa, type: 3}
+  stunnedSprite: {fileID: 21300000, guid: 79d49490e313a4fbba81d0f32312557b, type: 3}
+  holdingBallSprite: {fileID: 21300000, guid: 7b9ee594692bd471a8690a8a83165daf, type: 3}
   hasBall: 0
   thisPlayer: 1
   playerTeam: 1
@@ -304,6 +305,17 @@ MonoBehaviour:
   m_Grounded: 0
   m_CanWallJump: 0
 --- !u!114 &114664790488945726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085322280762156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114978443315102462
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
