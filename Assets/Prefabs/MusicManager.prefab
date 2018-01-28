@@ -381,5 +381,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71a4999a9bb04cd2914e1917fe3f221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redTeamTrack: {fileID: 0}
-  blueTeamTrack: {fileID: 0}
+  redTeamTheme: {fileID: 8300000, guid: b16807dc5f90c4124bfee7af82f32722, type: 3}
+  blueTeamTheme: {fileID: 8300000, guid: 2883473fe8725409f969311458cb3d27, type: 3}
+  bgTheme: {fileID: 8300000, guid: 5284392d1fd9d4a55879a4951e9a0f06, type: 3}
+  jumpClip: {fileID: 8300000, guid: 1473aaaee250d4d25a1ad839647c9615, type: 3}
+  hitClip: {fileID: 0}
+  attackClip: {fileID: 8300000, guid: 19d171b931bf74c9f9da78f1f6a6dd32, type: 3}

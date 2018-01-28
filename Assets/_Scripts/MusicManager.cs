@@ -8,15 +8,19 @@ public class MusicManager : MonoBehaviour {
 
 	public static MusicManager instance { get { return _instance; } }
 
-	public AudioClip redTeamTrack;
-	public AudioClip blueTeamTrack;
-	public AudioClip bgTrack;
+	public AudioClip redTeamTheme;
+	public AudioClip blueTeamTheme;
+	public AudioClip bgTheme;
+
+	public AudioClip jumpClip;
+	public AudioClip hitClip;
+	public AudioClip attackClip;
 
 	private AudioSource[] audioSources;
 	private AudioSource nextTrack;
 	private AudioSource currentTrack;
+	private AudioSource bgTrack;
 	private AudioSource sFX;
-	//private AudioSource bgTrack;
 
 	private float themeVolume = 0.25f;
 	private float smoothing = 0.005f;
@@ -49,8 +53,8 @@ public class MusicManager : MonoBehaviour {
 			}
 
 			if (a.name == "bgTrack") {
-				sFX = a;
-				sFX.volume = 1.0f;
+				bgTrack = a;
+				bgTrack.volume = 1.0f;
 			}
 		}
 	}
@@ -61,17 +65,17 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayRedTeamTheme()
 	{
-		SetClip__NextTrack (redTeamTrack);
+		SetClip__NextTrack (redTeamTheme);
 	}
 
 	public void PlayBlueTeamTheme()
 	{
-		SetClip__NextTrack (blueTeamTrack);
+		SetClip__NextTrack (blueTeamTheme);
 	}
 
 	public void Playbgtrack()
 	{
-		SetClip__NextTrack (bgTrack);
+		SetClip__NextTrack (bgTheme);
 	}
 
 	public void CheckForNextClip(){
