@@ -28,9 +28,9 @@ public class MasterGameTimer : MonoBehaviour
 	void Update ()
 	{
 		
-//		if (timeLeft >= 122f) {
-//			gameTimer.gameObject.SetActive (false);
-//		}
+		if (timeLeft >= 122f) {
+			gameTimer.gameObject.SetActive (false);
+		}
 
 		if (usingTimer) {
 			if (timeLeft <= 0) {
