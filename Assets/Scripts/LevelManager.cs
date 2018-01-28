@@ -1,16 +1,1 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class LevelManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-}
+﻿using System.Collections; using System.Collections.Generic; using UnityEngine; using UnityEngine.SceneManagement; using TMPro; using UnityEngine.UI;  public class LevelManager : MonoBehaviour {  	public void GoToMenu (){ 		SceneManager.LoadScene ("MainMenu"); 		Time.timeScale = 1f; 	}   	public void GoToLevel1 (){ //		Debug.Log ("Quit requested"); 		SceneManager.LoadScene ("Level1"); 	} 	public void QuitApp(){ 	Application.Quit(); 	print ("Quit Requested");  	}  }  
