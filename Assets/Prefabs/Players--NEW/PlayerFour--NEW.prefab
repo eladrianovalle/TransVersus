@@ -306,9 +306,9 @@ MonoBehaviour:
   isAttacking: 0
   playerMovement: 0
   isStunned: 0
-  regularSprite: {fileID: 0}
-  stunnedSprite: {fileID: 0}
-  holdingBallSprite: {fileID: 0}
+  regularSprite: {fileID: 21300000, guid: 468b93879398f46e893811fb3a2112ea, type: 3}
+  stunnedSprite: {fileID: 21300000, guid: b24292c60205b4ca7a7714ca315d17f4, type: 3}
+  holdingBallSprite: {fileID: 21300000, guid: b24292c60205b4ca7a7714ca315d17f4, type: 3}
   hasBall: 0
   thisPlayer: 3
   playerTeam: 1
