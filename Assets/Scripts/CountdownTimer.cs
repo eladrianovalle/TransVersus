@@ -46,6 +46,7 @@ public class CountdownTimer : MonoBehaviour {
 		if (timer <=0)
 		{
 			CountDownCanvas.gameObject.SetActive (false);
+			Time.timeScale = 1f;
 		}
 	}
 }
