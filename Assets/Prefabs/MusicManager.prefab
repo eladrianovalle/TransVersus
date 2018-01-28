@@ -385,5 +385,5 @@ MonoBehaviour:
   blueTeamTheme: {fileID: 8300000, guid: 2883473fe8725409f969311458cb3d27, type: 3}
   bgTheme: {fileID: 8300000, guid: 5284392d1fd9d4a55879a4951e9a0f06, type: 3}
   jumpClip: {fileID: 8300000, guid: 1473aaaee250d4d25a1ad839647c9615, type: 3}
-  hitClip: {fileID: 0}
-  attackClip: {fileID: 8300000, guid: 19d171b931bf74c9f9da78f1f6a6dd32, type: 3}
+  hitClip: {fileID: 8300000, guid: 19d171b931bf74c9f9da78f1f6a6dd32, type: 3}
+  attackClip: {fileID: 8300000, guid: 5995cf2db789c43c981dc4727ce1ccd1, type: 3}

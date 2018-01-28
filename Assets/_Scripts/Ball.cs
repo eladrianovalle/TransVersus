@@ -29,7 +29,7 @@ public class Ball : MonoBehaviour {
 	{
 		if (playerInPossession != null)
 		{
-			if (playerInPossession.isAttacking)
+			if (playerInPossession.isStunned)
 			{
 				DropBall ();
 			}
@@ -50,7 +50,7 @@ public class Ball : MonoBehaviour {
 	{
 		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-		rBody.isKinematic = !isVisibe;
+		rBody.enabled = !isVisibe;
 
 		var timeToWait = 0.0f;
 		if (!isVisibe) {timeToWait = 1f;}
@@ -68,8 +68,9 @@ public class Ball : MonoBehaviour {
 
 	public void DropBall()
 	{
+		playerInPossession.hasBall = false;
 		playerInPossession = null;
-		this.transform.position = transform.parent.position + transform.forward;
+		this.transform.position = transform.parent.position + transform.parent.transform.right;
 		this.transform.parent = null;
 		StartCoroutine(ShowBall (true));
 	}
@@ -77,6 +78,7 @@ public class Ball : MonoBehaviour {
 	public void PassBall(Player player)
 	{
 		playerInPossession = player;
+		playerInPossession.hasBall = true;
 		this.transform.parent = player.transform;
 	}
 

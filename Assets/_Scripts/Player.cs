@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	public bool isAttacking;
 	public float playerMovement;
 
+	public bool isStunned;
+
 	public bool hasBall;
 
 	public enum PlayerID
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour {
 
 		if (isJumping)
 		{
-			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
+			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
 //			Debug.Log (this.name + " is Jumping!!!");
 		}
 
@@ -66,4 +68,13 @@ public class Player : MonoBehaviour {
 //		}
 		
 	}
+
+	public void GetStunned()
+	{
+		isStunned = true;
+		
+	}
+
+
+
 }
