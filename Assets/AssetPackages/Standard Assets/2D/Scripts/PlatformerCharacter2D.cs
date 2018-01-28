@@ -37,6 +37,11 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
+		public bool IsFacingRight()
+		{
+			return m_FacingRight;
+		}
+
 		void Update()
 		{
 			// set time limit on air control

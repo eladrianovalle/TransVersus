@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour {
 	private Collider2D coll;
 	private float hitTimeFrame = .15f;
 	private float hitTimer;
-	private float thrustDirection = 2000f;
+	private float thrustDirection = 50000f;
 
 	void OnEnable()
 	{
@@ -44,14 +44,14 @@ public class Weapon : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			var thrust = thrustDirection;
-			if (player.playerMovement < 0) 
+			if (!player.characterController.IsFacingRight()) 
 			{
 				thrust *= -1f;
 			} 
 
 			Debug.Log (other.gameObject.name + " just got KNOCK DA FUCK OUT! : " + thrust + " is the THRUST of the HIT!!!!");
 
-			other.gameObject.GetComponent<Rigidbody2D> ().AddForce (transform.right * thrust, 0);
+			other.gameObject.GetComponent<Rigidbody2D> ().AddForce ((transform.right * thrust) + (transform.up * 0.3f), ForceMode2D.Force);
 //			other.GetComponent<Player> ().Stun ();
 		}
 	}

@@ -26,6 +26,8 @@ public class Player : MonoBehaviour {
 
 	public PlayerID thisPlayer;
 	public Team playerTeam;
+
+	public UnityStandardAssets._2D.PlatformerCharacter2D characterController;
 //	public NinjaController.NinjaController playerController;
 
 	public Weapon weapon;
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour {
 	void Awake () {
 		player = ReInput.players.GetPlayer (playerID);
 		weapon = GetComponentInChildren<Weapon> ();
+		characterController = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ();
 	}
 	
 	void Update () 
