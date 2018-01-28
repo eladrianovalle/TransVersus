@@ -51,11 +51,13 @@ public class Player : MonoBehaviour {
 
 		if (isJumping)
 		{
+			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
 //			Debug.Log (this.name + " is Jumping!!!");
 		}
 
 		if (isAttacking) {
 			Debug.Log (this.name + " is Attacking!!!");
+			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
 			weapon.gameObject.SetActive (true);
 		} 
 //		else 
