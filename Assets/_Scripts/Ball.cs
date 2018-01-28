@@ -50,7 +50,7 @@ public class Ball : MonoBehaviour {
 	{
 		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-		rBody.enabled = !isVisibe;
+//		rBody.enabled = !isVisibe;
 
 		var timeToWait = 0.0f;
 		if (!isVisibe) {timeToWait = 1f;}

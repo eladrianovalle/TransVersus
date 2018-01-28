@@ -13,6 +13,12 @@ public class Player : MonoBehaviour {
 	public float playerMovement;
 
 	public bool isStunned;
+	private float stunnedTime = 2f;
+	private float stunnedTimer;
+
+	public Sprite regularSprite;
+	public Sprite stunnedSprite;
+	public Sprite holdingBallSprite;
 
 	public bool hasBall;
 
@@ -44,12 +50,12 @@ public class Player : MonoBehaviour {
 	{
 		isJumping = player.GetButtonDown ("Jump");
 		isAttacking = player.GetButtonDown ("Attack");
-		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-//		if (playerController != null)
-//		{
-//			playerController.ProcessInputFromPlayer (isJumping, playerMovement);
-//		}
+		playerMovement = player.GetAxisRaw ("Move Horizontal");
+		if (isStunned) 
+		{
+			playerMovement = 0f;
+		}
 
 		if (isJumping)
 		{
@@ -62,17 +68,22 @@ public class Player : MonoBehaviour {
 			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
 			weapon.gameObject.SetActive (true);
 		} 
-//		else 
-//		{
-//			weapon.gameObject.SetActive (false);
-//		}
-		
+
+		if (stunnedTimer > 0) {
+			stunnedTimer -= Time.deltaTime;
+		} 
+		else 
+		{
+			isStunned = false;
+		}
+
+
 	}
 
 	public void GetStunned()
 	{
 		isStunned = true;
-		
+		stunnedTimer = stunnedTime;
 	}
 
 
