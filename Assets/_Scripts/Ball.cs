@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour {
 
 	void Start()
 	{
-		ShowBall (true);
+		ShowBall ();
 	}
 	
 	void Update () 
@@ -31,7 +31,7 @@ public class Ball : MonoBehaviour {
 		{
 			if (playerInPossession.isStunned)
 			{
-				DropBall ();
+				DropBall (playerInPossession);
 			}
 		}
 		
@@ -46,34 +46,45 @@ public class Ball : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator ShowBall(bool showBall)
+	public void DisappearBall()
 	{
-		isVisibe = showBall;
+		isVisibe = false;
 		sRenderer.enabled = isVisibe;
-//		rBody.enabled = !isVisibe;
+		coll.enabled = isVisibe;
+	}
 
-		var timeToWait = 0.0f;
-		if (!isVisibe) {timeToWait = 1f;}
+	public IEnumerator ShowBall()
+	{
+		isVisibe = true;
+		sRenderer.enabled = isVisibe;
+
+		var timeToWait = 0.3f;
+
 		yield return new WaitForSecondsRealtime (timeToWait);
 		coll.enabled = isVisibe;
 	}
 
 	public void PickupBall(Player player)
 	{
-		StartCoroutine(ShowBall (false));
 		playerInPossession = player;
 		playerInPossession.hasBall = true;
+		canScore = true;
+		DisappearBall ();
+
 //		this.transform.parent = player.transform;
 //		this.transform.position = transform.parent.position;
 	}
 
-	public void DropBall()
+	public void DropBall(Player player)
 	{
 		playerInPossession.hasBall = false;
 		playerInPossession = null;
-		this.transform.position = transform.parent.position + transform.parent.transform.right;
-//		this.transform.parent = null;
-		StartCoroutine(ShowBall (true));
+		canScore = false;
+
+		this.transform.position = player.transform.position;
+		rBody.AddForce (Vector2.right * (Random.Range(-1,1) * 3));
+
+		StartCoroutine(ShowBall ());
 	}
 
 	public void PassBall(Player player)
