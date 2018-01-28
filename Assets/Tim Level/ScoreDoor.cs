@@ -5,10 +5,10 @@ using UnityEngine;
 public class ScoreDoor : MonoBehaviour {
 
 	public Sprite buttonPressed, doorOpen, buttonIdle;
-	public bool playerOnButton, playerIsRed, playerIsBlue;
+	public bool playerOnButton, playerIsRed, playerIsBlue, playerOnOtherScoreDoor, onSameTeam, playerCanScore;
 	public AudioSource doorPressedSound, doorOpenSound;
 	public Player playerScript;
-	public GameObject myLinkedScoreDoor;
+	public ScoreDoor myLinkedScoreDoor;
 
 	private SpriteRenderer spriteRenderer;
 
@@ -18,9 +18,27 @@ public class ScoreDoor : MonoBehaviour {
 		playerOnButton = false;
 		playerIsRed = false;
 		playerIsBlue = false;
+		playerOnOtherScoreDoor = false;
+		onSameTeam = false;
+		playerCanScore = false;
 	}
-	
+//	(myvariabvle != null)
 
+	void Update(){
+		if (playerOnOtherScoreDoor == true) {
+			Player playerOnOtherDoor = myLinkedScoreDoor.GetComponent<Player> ();
+
+			if (myLinkedScoreDoor.playerIsBlue == true && playerIsBlue == true) {
+				print ("blue team");
+				onSameTeam = true;
+			} else if (myLinkedScoreDoor.playerIsRed == true && playerIsRed == true) {
+				print ("red team");
+
+			}
+		}
+		// if sameteam is true - check if player has ball, if they do change the sprite to "SpriteRenderer.sprite = doorOpen;"
+		//  check if player on other door has the ball, and change the sprite on myLinkedScoreDoor
+	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		playerOnButton = true;
@@ -28,51 +46,25 @@ public class ScoreDoor : MonoBehaviour {
 		spriteRenderer.sprite = buttonPressed;
 		playerScript = other.gameObject.GetComponent<Player> ();
 
-		if (playerScript.playerTeam == Player.Team.Blue) {
-			playerIsBlue = true;
-		} else if (playerScript.playerTeam == Player.Team.Red) {
-			playerIsRed = true;
-		} else {
-			Debug.LogError ("Player Team Enum not set");
-		}
-
-		// check to see if you of the person on the other Door has the ball.
-		if (playerScript.hasBall == true || myLinkedScoreDoor.gameObject.GetComponent<Player> ().hasBall == true) {
-
-			// check to see if there is someone of the other Door.
-			if (myLinkedScoreDoor.gameObject.GetComponent<ScoreDoor> ().playerOnButton == true) {
-				print ("There is someone on the other door");
-
-				// check to see if the person on the other door is your teammate.
-				if (myLinkedScoreDoor.gameObject.GetComponent<ScoreDoor>().playerIsBlue == true && playerIsBlue == true) {
-
-					//this opens the door for the person with the ball
-					if (myLinkedScoreDoor.gameObject.GetComponent<Player> ().hasBall == true) {
-						SpriteRenderer theirSpriteRenderer = myLinkedScoreDoor.gameObject.GetComponent<SpriteRenderer> (); 
-						theirSpriteRenderer.sprite = doorOpen;
-						print ("Blue team scores!");
-						// dump ball, increase score for Blue team
-					} else {
-						spriteRenderer.sprite = doorOpen;
-						print ("Blue team scores!");
-						// dump ball, increase score for Blue team
-					}
-
-				} else if (myLinkedScoreDoor.gameObject.GetComponent<ScoreDoor>().playerIsRed == true && playerIsRed == true) {
-					if (myLinkedScoreDoor.gameObject.GetComponent<Player> ().hasBall == true) {
-						SpriteRenderer theirSpriteRenderer = myLinkedScoreDoor.gameObject.GetComponent<SpriteRenderer> (); 
-						theirSpriteRenderer.sprite = doorOpen;
-						print ("Red team scores!");
-						// dump ball, increase score for Red team
-					} else {
-						spriteRenderer.sprite = doorOpen;
-						print ("Red team scores!");
-						// dump ball, increase score for Red team
-					}
-				}
+		if (playerScript != null)
+		{
+			if (playerScript.playerTeam == Player.Team.Blue) {
+				playerIsBlue = true;
+			} else if (playerScript.playerTeam == Player.Team.Red) {
+				playerIsRed = true;
+			} else {
+				Debug.LogError ("Player Team Enum not set");
 			}
 		}
+			
 
+		if (myLinkedScoreDoor.playerOnButton == true) {
+			print ("There is someone on the other door");
+			playerOnOtherScoreDoor = true;
+
+		} else {
+			playerOnOtherScoreDoor = false;
+		}
 
 
 	}
