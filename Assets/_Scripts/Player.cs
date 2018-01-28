@@ -8,15 +8,24 @@ public class Player : MonoBehaviour {
 	public int playerID;
 	public Rewired.Player player;
 
-	bool playerJumping;
-	float playerMovement;
+	public bool isJumping;
+	public bool isAttacking;
+	public float playerMovement;
+
+	public bool hasBall;
 
 	public enum PlayerID
 	{
 		PlayerOne, PlayerTwo, PlayerThree, PlayerFour
 	}
 
+	public enum Team
+	{
+		Red, Blue
+	}
+
 	public PlayerID thisPlayer;
+	public Team playerTeam;
 	public NinjaController.NinjaController playerController;
 
 	void Awake () {
@@ -25,12 +34,13 @@ public class Player : MonoBehaviour {
 	
 	void Update () 
 	{
-		playerJumping = player.GetButton ("Jump");
+		isJumping = player.GetButton ("Jump");
+		isAttacking = player.GetButton ("Attack");
 		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-		playerController.ProcessInputFromPlayer (playerJumping, playerMovement);
+		playerController.ProcessInputFromPlayer (isJumping, playerMovement);
 
-		if (player.GetButtonDown("Attack"))
+		if (isAttacking)
 		{
 			Debug.Log (this.name + " is Attacking!!!");
 		}
