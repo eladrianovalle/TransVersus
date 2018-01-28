@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114252273803340502}
   - component: {fileID: 61974680241722584}
   - component: {fileID: 50330658304912812}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: PlayerFour
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816230375797704}
   - component: {fileID: 212464433898742130}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 3
   thisPlayer: 0
+  playerTeam: 1
   playerController: {fileID: 114252273803340502}
 --- !u!212 &212464433898742130
 SpriteRenderer:
