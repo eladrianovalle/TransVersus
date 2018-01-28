@@ -8,32 +8,19 @@ public class MusicManager : MonoBehaviour {
 
 	public static MusicManager instance { get { return _instance; } }
 
-	[Header("Themes")]
-	public AudioClip redTeamTheme;
-	public AudioClip blueTeamTheme;
-	public AudioClip bgTheme;
-	public AudioClip bgFadedTheme;
-
-	[Header("SFX")]
-	public AudioClip jumpClip;
-	public AudioClip hitClip;
-	public AudioClip attackClip;
+	public AudioClip redTeamTrack;
+	public AudioClip blueTeamTrack;
+	public AudioClip bgTrack;
 
 	private AudioSource[] audioSources;
-	private AudioSource blueTrack;
-	private AudioSource redTrack;
-	private AudioSource bgTrack;
-	private AudioSource bgFilteredTrack;
+	private AudioSource nextTrack;
+	private AudioSource currentTrack;
 	private AudioSource sFX;
+	//private AudioSource bgTrack;
 
-	private float themeVolume = 0f;
-	private float filteredThemeVolume = 0f;
-	private float redTrackVolume = 0f;
-	private float blueTrackVolume = 0f;
-
-
+	private float themeVolume = 0.25f;
 	private float smoothing = 0.005f;
-//	private float volumeMult = 1f;
+	private float volumeMult = 1f;
 
 
 	void Awake () {
@@ -50,80 +37,75 @@ public class MusicManager : MonoBehaviour {
 		foreach (AudioSource a in audioSources) {
 			a.volume = 0;
 
-			if (a.name == "RedTrack") 
-			{
-				redTrack = a;
-				redTrack.clip = redTeamTheme;
+			if (a.name == "CurrentTrack") {
+				currentTrack = a;
 			}
-			if (a.name == "BlueTrack") 
-			{
-				blueTrack = a;
-				blueTrack.clip = blueTeamTheme;
+			if (a.name == "NextTrack") {
+				nextTrack = a;
 			}
-			if (a.name == "bgTrack") 
-			{
-				bgTrack = a;
-				bgTrack.clip = bgTheme;
+			if (a.name == "SFX") {
+				sFX = a;
+				sFX.volume = 1.0f;
 			}
-			if (a.name == "bgFilteredTrack")
-			{
-				bgFilteredTrack = a;
-				bgFilteredTrack.clip = bgFadedTheme;
-			}
-			if (a.name == "SFX") 
-			{
+
+			if (a.name == "bgTrack") {
 				sFX = a;
 				sFX.volume = 1.0f;
 			}
 		}
 	}
 
-	void Start()
-	{
-		themeVolume = 1.0f;
-		foreach (AudioSource a in audioSources) {
-			a.Play ();
-		}
-	}
-
-	void Update() 
-	{
-		redTrack.volume = Mathf.Lerp (redTrack.volume, redTrackVolume, Time.time * smoothing);
-		blueTrack.volume = Mathf.Lerp (blueTrack.volume, blueTrackVolume, Time.time * smoothing);
-		bgTrack.volume = Mathf.Lerp (bgTrack.volume, themeVolume, Time.time * smoothing);
-		bgFilteredTrack.volume = Mathf.Lerp (bgFilteredTrack.volume, filteredThemeVolume, Time.time * smoothing);
+	void Update() {
+		CheckForNextClip ();
 	}
 
 	public void PlayRedTeamTheme()
 	{
-		themeVolume = 1f;
-		filteredThemeVolume = 0f;
-		redTrackVolume = 1f;
-		blueTrackVolume = 0f;
+		SetClip__NextTrack (redTeamTrack);
 	}
 
 	public void PlayBlueTeamTheme()
 	{
-		themeVolume = 1f;
-		filteredThemeVolume = 0f;
-		redTrackVolume = 0f;
-		blueTrackVolume = 1f;
+		SetClip__NextTrack (blueTeamTrack);
 	}
 
-	public void PlayBGtrack()
-	{		
-		themeVolume = 1f;
-		filteredThemeVolume = 0f;
-		redTrackVolume = 0f;
-		blueTrackVolume = 0f;
-	}
-
-	public void PlayFilteredBGtrack()
+	public void Playbgtrack()
 	{
-		themeVolume = 0f;
-		filteredThemeVolume = 1f;
-		redTrackVolume = 0f;
-		blueTrackVolume = 0f;
+		SetClip__NextTrack (bgTrack);
+	}
+
+	public void CheckForNextClip(){
+		// if new clip added to next track audiosource, crossfade audiosources
+		if (nextTrack.clip != null && nextTrack.clip != currentTrack.clip) 
+		{
+			currentTrack.volume = Mathf.Lerp (currentTrack.volume, 0, Time.time );
+			nextTrack.volume = Mathf.Lerp (nextTrack.volume, 1 * volumeMult, Time.time);
+			nextTrack.Play ();
+
+			// swap sources once current track volume is inaudible
+			if (currentTrack.volume < 0.01) 
+			{
+				currentTrack.clip = nextTrack.clip;
+				SwapSources ();
+			}
+		}
+	}
+
+	public void SwapSources() {
+		var tempSource = currentTrack;
+		currentTrack = nextTrack;
+		nextTrack = tempSource;
+	}
+
+	public void SetClip__NextTrack(AudioClip clip){
+		if (clip != null) 
+		{
+			nextTrack.clip = clip;
+		} 
+		else 
+		{
+			Debug.LogError ("LOOP clip is null");
+		}
 	}
 
 	public void SetClip__SFX(AudioClip clip){
@@ -151,13 +133,23 @@ public class MusicManager : MonoBehaviour {
 		sFX.Play ();
 	}
 
+
+
 	public void FadeInTheme() {
-		bgTrack.volume = Mathf.Lerp (bgTrack.volume, themeVolume, Time.time * smoothing);
+		nextTrack.volume = Mathf.Lerp (nextTrack.volume, themeVolume, Time.time * smoothing);
+		currentTrack.volume = Mathf.Lerp (currentTrack.volume, 1, Time.time * smoothing);
 	}
 
-	public void FadeOutMusic() {
-		foreach (AudioSource a in audioSources) {
-			a.volume = Mathf.Lerp (a.volume, 0, Time.time * smoothing);
-		}
+	public void FadeOutTheme() {
+		nextTrack.volume = Mathf.Lerp (nextTrack.volume, 0, Time.time);
+	}
+
+//	public void TestCrossfade_2() {
+//		nextTrack.volume = Mathf.Lerp (nextTrack.volume, 0, Time.time);
+//		nextTrack.clip = testClip_2;
+//	}
+
+	public void SetAllVolume(float volume) {
+		this.volumeMult = volume;
 	}
 }

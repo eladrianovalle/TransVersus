@@ -49,10 +49,10 @@ public class Weapon : MonoBehaviour {
 				thrust *= -1f;
 			} 
 
-//			Debug.Log (other.gameObject.name + " just got KNOCK DA FUCK OUT! : " + thrust + " is the THRUST of the HIT!!!!");
+			Debug.Log (other.gameObject.name + " just got KNOCK DA FUCK OUT! : " + thrust + " is the THRUST of the HIT!!!!");
 
-//			other.gameObject.GetComponent<Rigidbody2D> ().AddForce ((transform.right * thrust) + (transform.up * 0.3f), ForceMode2D.Force);
-			other.GetComponent<Player> ().GetStunned ();
+			other.gameObject.GetComponent<Rigidbody2D> ().AddForce ((transform.right * thrust) + (transform.up * 0.3f), ForceMode2D.Force);
+//			other.GetComponent<Player> ().Stun ();
 		}
 	}
 }
