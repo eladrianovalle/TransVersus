@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Ground
   - Weapon
+  - Sphere
   layers:
   - Default
   - TransparentFX
