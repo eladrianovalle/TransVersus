@@ -8,7 +8,11 @@ TagManager:
   - Ball
   - Ground
   - Weapon
+<<<<<<< HEAD
   - Sphere
+=======
+  - Portal
+>>>>>>> Mike-G-
   layers:
   - Default
   - TransparentFX
