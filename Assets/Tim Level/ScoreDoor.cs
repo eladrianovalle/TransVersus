@@ -5,117 +5,64 @@ using UnityEngine;
 public class ScoreDoor : MonoBehaviour {
 
 	public Sprite buttonPressed, doorOpen, buttonIdle;
-	public bool playerOnButton, playerIsRed, playerIsBlue, playerOnOtherScoreDoor, onSameTeam, playerCanScore;
 	public AudioSource doorPressedSound, doorOpenSound;
-
-	public Player playerOnThisDoor;
-	public Player playerOnOtherDoor;
-
-	public ScoreDoor myLinkedScoreDoor;
+	public Player playerScript;
+	public ScoreManager scoreManager;
 
 	private SpriteRenderer spriteRenderer;
+
+
+	void Awake() {
+		if (this.transform.position.x < 0) {
+			int leftNumber = Random.Range(0,100);
+			print ("Left number = " + leftNumber);
+			if (leftNumber < 50) {
+				this.transform.position = new Vector2 (-31.31f,2.37f);
+
+			} else {
+				this.transform.position = new Vector2 (-31.31f,32.53f);
+			}
+		} else {
+			int rightNumber = Random.Range(0,100);
+			print ("Right number = " + rightNumber);
+			if (rightNumber < 50) {
+				this.transform.position = new Vector2 (31.31f,2.37f);
+			} else {
+				this.transform.position = new Vector2 (31.31f,32.81f);
+			}
+		}
+
+	}
 
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
-		playerOnButton = false;
-		playerIsRed = false;
-		playerIsBlue = false;
-		playerOnOtherScoreDoor = false;
-		onSameTeam = false;
-		playerCanScore = false;
-	}
-//	(myvariabvle != null)
-
-	void Update()
-	{
-
-		if (playerOnThisDoor != null)
-		{
-			
-		}
-
-		if (myLinkedScoreDoor.playerOnThisDoor != null)
-		{
-			if (myLinkedScoreDoor.playerIsBlue == true && playerIsBlue == true) {
-				print ("blue team");
-				onSameTeam = true;
-			} else if (myLinkedScoreDoor.playerIsRed == true && playerIsRed == true) {
-				onSameTeam = true;
-				print ("red team");
-			} else {
-				onSameTeam = false;
-			}
-		}
-
-
-
-
-
-		if (playerOnOtherScoreDoor == true) 
-		{
-			Player playerOnOtherDoor = myLinkedScoreDoor.GetComponent<Player> ();
-
-			if (myLinkedScoreDoor.playerIsBlue == true && playerIsBlue == true) {
-				print ("blue team");
-				onSameTeam = true;
-			} else if (myLinkedScoreDoor.playerIsRed == true && playerIsRed == true) {
-				print ("red team");
-
-			}
-		}
-		// if sameteam is true - check if player has ball, if they do change the sprite to "SpriteRenderer.sprite = doorOpen;"
-		//  check if player on other door has the ball, and change the sprite on myLinkedScoreDoor
 	}
 
-	void OnTriggerEnter2D(Collider2D other) 
-	{
-		if (other.tag == "Player")
-		{
-			playerOnThisDoor = other.gameObject.GetComponent<Player> ();
-		}
 
-		playerOnButton = true;
+	void OnTriggerEnter2D(Collider2D other) {
 		doorPressedSound.Play ();
 		spriteRenderer.sprite = buttonPressed;
-//		playerScript = other.gameObject.GetComponent<Player> ();
+		playerScript = other.gameObject.GetComponent<Player> ();
 
-		if (playerOnThisDoor != null)
-		{
-			if (playerOnThisDoor.playerTeam == Player.Team.Blue) 
-			{
-				playerIsBlue = true;
-			} 
-			else if (playerOnThisDoor.playerTeam == Player.Team.Red) 
-			{
-				playerIsRed = true;
-			} 
-			else 
-			{
-				Debug.LogError ("Player Team Enum not set");
-			}
+		if (this.transform.position.x < 0) {
+			scoreManager.SetPlayerOnLeftScoreDoor(playerScript);
+		} else {
+			scoreManager.SetPlayerOnRightScoreDoor(playerScript);
 		}
-			
-
-		if (myLinkedScoreDoor.playerOnButton == true) 
-		{
-			print ("There is someone on the other door");
-			playerOnOtherScoreDoor = true;
-
-		} 
-		else 
-		{
-			playerOnOtherScoreDoor = false;
-		}
-
-
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
 		spriteRenderer.sprite = buttonIdle;
-		playerOnButton = false;
-		playerIsRed = false;
-		playerIsBlue = false;
+		if (this.transform.position.x < 0) {
+			scoreManager.SetPlayerOnLeftScoreDoor(null);
+		} else {
+			scoreManager.SetPlayerOnRightScoreDoor(null);
+		}
+	}
+
+	public void OpenScoreDoor() {
+		spriteRenderer.sprite = doorOpen;
 	}
 
 }

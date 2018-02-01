@@ -8,7 +8,6 @@ TagManager:
   - Ball
   - Ground
   - Weapon
-  - Portal
   layers:
   - Default
   - TransparentFX
@@ -29,7 +28,7 @@ TagManager:
   - WeaponP2
   - WeaponP3
   - WeaponP4
-  - BallTrigger
+  - 
   - 
   - 
   - 

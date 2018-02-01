@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 58566952450532634}
   - component: {fileID: 114664790488945726}
   - component: {fileID: 114978443315102462}
-  - component: {fileID: 114210606404355004}
   m_Layer: 16
   m_Name: Weapon
   m_TagString: Weapon
@@ -246,17 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114210606404355004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1085322280762156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114210880529769664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,7 +298,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 12033
+    m_Bits: 12032
   m_WhatIsWall:
     serializedVersion: 2
     m_Bits: 16384

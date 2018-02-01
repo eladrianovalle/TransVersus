@@ -8,7 +8,7 @@ public class CountdownTimer : MonoBehaviour {
 
 
 	//public string levelToLoad;
-	private float timer = 3f;
+	private float timer;
 	//private Text timerSeconds;
 	public TextMeshProUGUI countDownText;
 	public AudioSource audioSource;
@@ -20,14 +20,17 @@ public class CountdownTimer : MonoBehaviour {
 
 	[SerializeField] private GameObject CountDownCanvas;
 
-	// Use this for initialization
+
+	void Awake() {
+		SetTimer(3f);
+	}
+
 	void Start () {
 		//m_textMeshPro = gameObject.AddComponent<TextMeshPro>();
 		//timerSeconds = GetComponent<TextMeshPro>();
 		//timerSeconds = GetComponent<Text>();
 		countDownText = GetComponent<TextMeshProUGUI>();
 		audioSource = GetComponent<AudioSource>();
-
 	}
 
 	// Update is called once per frame
@@ -46,7 +49,12 @@ public class CountdownTimer : MonoBehaviour {
 		if (timer <=0)
 		{
 			CountDownCanvas.gameObject.SetActive (false);
+			Time.timeScale = 1f;
 		}
+	}
+
+	public void SetTimer(float time){
+		timer = time;
 	}
 }
 

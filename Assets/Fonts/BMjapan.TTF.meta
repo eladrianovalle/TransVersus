@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a6f9e2883a3f64ba18a66243b8f09eeb
+timeCreated: 1517152046
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BM japan
+  fontNames:
+  - BM japan
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,30 +5,25 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
 	private SpriteRenderer sRenderer;
-	public Collider2D coll;
-	public Collider2D trigger;
+	private Collider2D coll;
 	private Rigidbody2D rBody;
 
 	public bool canScore = false;
 	public bool isVisibe = false;
-	public bool canBePickedUp = true;
-
-	private float ballCanBePickedUpTime = 1f;
-	private float ballTimer;
+	public ScoreManager scoreManager;
 
 	public Player playerInPossession;
 
 	void Awake () 
 	{
 		sRenderer = GetComponentInChildren<SpriteRenderer> ();
-//		coll = GetComponent<Collider2D> ();
-//		trigger = GetComponentInChildren<Collider2D> ();
+		coll = GetComponent<Collider2D> ();
 		rBody = GetComponent<Rigidbody2D> ();
 	}
 
 	void Start()
 	{
-		ShowBall ();
+		ShowBall (true);
 	}
 	
 	void Update () 
@@ -37,85 +32,60 @@ public class Ball : MonoBehaviour {
 		{
 			if (playerInPossession.isStunned)
 			{
-				DropBall (playerInPossession);
+				DropBall ();
 			}
-		}
-
-		if (ballTimer > 0) 
-		{
-			ballTimer -= Time.deltaTime;
-		} 
-		else 
-		{
-			canBePickedUp = true;
 		}
 		
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "Player" || canBePickedUp)
+		if (other.gameObject.tag == "Player")
 		{
 			var player = other.gameObject.GetComponent<Player> ();
 			PickupBall (player);
 		}
 	}
 
-	public void DisappearBall()
+	public IEnumerator ShowBall(bool showBall)
 	{
-		isVisibe = false;
-		canBePickedUp = false;
+		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-		trigger.enabled = isVisibe;
-	}
+//		rBody.enabled = !isVisibe;
 
-	public void ShowBall()
-	{
-		canBePickedUp = false;
-		ballTimer = ballCanBePickedUpTime;
-
-		isVisibe = true;
-		sRenderer.enabled = isVisibe;
-		trigger.enabled = isVisibe;
+		var timeToWait = 0.0f;
+		if (!isVisibe) {timeToWait = 1f;}
+		yield return new WaitForSecondsRealtime (timeToWait);
+		coll.enabled = isVisibe;
 	}
 
 	public void PickupBall(Player player)
 	{
-		if (player != null)
-		{
-			canBePickedUp = false;
-			playerInPossession = player;
-			playerInPossession.hasBall = true;
-			canScore = true;
-			DisappearBall ();
-		}
-
-
-//		this.transform.parent = player.transform;
-//		this.transform.position = transform.parent.position;
+		StartCoroutine(ShowBall (false));
+		playerInPossession = player;
+		playerInPossession.hasBall = true;
+		scoreManager.SetPlayerWithBall(player);
+		this.transform.parent = player.transform;
+		this.transform.position = transform.parent.position;
 	}
 
-	public void DropBall(Player player)
+	public void DropBall()
 	{
-		canBePickedUp = false;
 		playerInPossession.hasBall = false;
 		playerInPossession = null;
-		canScore = false;
-
-		this.transform.position = player.transform.position + transform.right;
-		rBody.AddForce (transform.right * 5);
-
-		ShowBall ();
+//		playerInPossession.hasBall = false;
+		scoreManager.SetPlayerWithBall(null);
+		this.transform.position = transform.parent.position + transform.parent.transform.right;
+		this.transform.parent = null;
+		StartCoroutine(ShowBall (true));
 	}
 
 	public void PassBall(Player player)
 	{
-		canBePickedUp = false;
 		playerInPossession = player;
 		playerInPossession.hasBall = true;
-//		this.transform.parent = player.transform;
+		this.transform.parent = player.transform;
 	}
-
 
 
 }
