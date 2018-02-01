@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Fire
-  - Ball
-  - Ground
-  - Weapon
-<<<<<<< HEAD
-  - Sphere
-=======
-  - Portal
->>>>>>> Mike-G-
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -22,17 +13,17 @@ TagManager:
   - UI
   - 
   - 
-  - Player1
-  - Player2
-  - Player3
-  - Player4
-  - Ball
-  - Ground
-  - Wall
-  - WeaponP1
-  - WeaponP2
-  - WeaponP3
-  - WeaponP4
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -49,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 3947030343
     locked: 0
