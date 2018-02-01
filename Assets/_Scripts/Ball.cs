@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour {
 
 	public bool canScore = false;
 	public bool isVisibe = false;
+	public ScoreManager scoreManager;
 
 	public Player playerInPossession;
 
@@ -29,7 +30,7 @@ public class Ball : MonoBehaviour {
 	{
 		if (playerInPossession != null)
 		{
-			if (playerInPossession.isAttacking)
+			if (playerInPossession.isStunned)
 			{
 				DropBall ();
 			}
@@ -50,7 +51,7 @@ public class Ball : MonoBehaviour {
 	{
 		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-		rBody.isKinematic = !isVisibe;
+//		rBody.enabled = !isVisibe;
 
 		var timeToWait = 0.0f;
 		if (!isVisibe) {timeToWait = 1f;}
@@ -62,14 +63,19 @@ public class Ball : MonoBehaviour {
 	{
 		StartCoroutine(ShowBall (false));
 		playerInPossession = player;
+		playerInPossession.hasBall = true;
+		scoreManager.SetPlayerWithBall(player);
 		this.transform.parent = player.transform;
 		this.transform.position = transform.parent.position;
 	}
 
 	public void DropBall()
 	{
+		playerInPossession.hasBall = false;
 		playerInPossession = null;
-		this.transform.position = transform.parent.position + transform.forward;
+//		playerInPossession.hasBall = false;
+		scoreManager.SetPlayerWithBall(null);
+		this.transform.position = transform.parent.position + transform.parent.transform.right;
 		this.transform.parent = null;
 		StartCoroutine(ShowBall (true));
 	}
@@ -77,9 +83,9 @@ public class Ball : MonoBehaviour {
 	public void PassBall(Player player)
 	{
 		playerInPossession = player;
+		playerInPossession.hasBall = true;
 		this.transform.parent = player.transform;
 	}
-
 
 
 }

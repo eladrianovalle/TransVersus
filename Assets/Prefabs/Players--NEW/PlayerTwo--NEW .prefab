@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4099361937659542}
   - component: {fileID: 212263642386028880}
   - component: {fileID: 58566952450532634}
+  - component: {fileID: 114664790488945726}
+  - component: {fileID: 114978443315102462}
   m_Layer: 16
   m_Name: Weapon
   m_TagString: Weapon
@@ -73,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4956840833367490}
   - component: {fileID: 212955492645757126}
+  - component: {fileID: 114210880529769664}
   m_Layer: 9
   m_Name: PlayerRender
   m_TagString: Untagged
@@ -159,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 1878840999629060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4923602890939308}
   m_RootOrder: 2
@@ -242,6 +245,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114210880529769664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878840999629060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac72fb1d67284abf9fcac239f16e647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sRenderer: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &114397403471678066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,9 +273,15 @@ MonoBehaviour:
   isJumping: 0
   isAttacking: 0
   playerMovement: 0
+  isStunned: 0
+  regularSprite: {fileID: 21300000, guid: dd8ba2d9206084ca69e5b8efe019bbaa, type: 3}
+  stunnedSprite: {fileID: 21300000, guid: 79d49490e313a4fbba81d0f32312557b, type: 3}
+  holdingBallSprite: {fileID: 21300000, guid: 7b9ee594692bd471a8690a8a83165daf, type: 3}
   hasBall: 0
   thisPlayer: 1
   playerTeam: 1
+  characterController: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!114 &114493480196892460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +304,28 @@ MonoBehaviour:
     m_Bits: 16384
   m_Grounded: 0
   m_CanWallJump: 0
+--- !u!114 &114664790488945726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085322280762156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114978443315102462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085322280762156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212263642386028880
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -315,7 +359,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e005793ce5b14c2990619dfff075a2b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35599995, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -356,7 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 6e0d40ea02c954f249b5c45977a4b916, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd8ba2d9206084ca69e5b8efe019bbaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

@@ -12,15 +12,21 @@ public class Player : MonoBehaviour {
 	public bool isAttacking;
 	public float playerMovement;
 
+	public bool isStunned;
+	private float stunnedTime = 2f;
+	private float stunnedTimer;
+
+	public Sprite regularSprite;
+	public Sprite stunnedSprite;
+	public Sprite holdingBallSprite;
+
 	public bool hasBall;
 
-	public enum PlayerID
-	{
+	public enum PlayerID {
 		PlayerOne, PlayerTwo, PlayerThree, PlayerFour
 	}
 
-	public enum Team
-	{
+	public enum Team {
 		Red, Blue
 	}
 
@@ -32,36 +38,50 @@ public class Player : MonoBehaviour {
 
 	public Weapon weapon;
 
+	private SpriteRenderer spriteR;
+
 	void Awake () {
 		player = ReInput.players.GetPlayer (playerID);
 		weapon = GetComponentInChildren<Weapon> ();
 		characterController = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ();
+		spriteR = GetComponentInChildren<SpriteRenderer>();
 	}
 	
-	void Update () 
-	{
+	void Update () {
 		isJumping = player.GetButtonDown ("Jump");
 		isAttacking = player.GetButtonDown ("Attack");
+
 		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-//		if (playerController != null)
-//		{
-//			playerController.ProcessInputFromPlayer (isJumping, playerMovement);
-//		}
+		if (hasBall == true) {
+			spriteR.sprite = holdingBallSprite;
+		}
+		if (isStunned) {
+			playerMovement = 0f;
+		}
 
-		if (isJumping)
-		{
+		if (isJumping) {
+			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
 //			Debug.Log (this.name + " is Jumping!!!");
 		}
 
 		if (isAttacking) {
 			Debug.Log (this.name + " is Attacking!!!");
+			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
 			weapon.gameObject.SetActive (true);
 		} 
-//		else 
-//		{
-//			weapon.gameObject.SetActive (false);
-//		}
-		
+
+		if (stunnedTimer > 0) {
+			stunnedTimer -= Time.deltaTime;
+		} else {
+			isStunned = false;
+		}
+
 	}
+
+	public void GetStunned() {
+		isStunned = true;
+		stunnedTimer = stunnedTime;
+	}
+
 }

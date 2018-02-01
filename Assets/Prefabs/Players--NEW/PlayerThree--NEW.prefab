@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 4993514619599762}
   - component: {fileID: 212247711900155996}
   - component: {fileID: 58626436827958728}
+  - component: {fileID: 114739695132896946}
+  - component: {fileID: 114673123385165618}
   m_Layer: 17
   m_Name: Weapon
   m_TagString: Weapon
@@ -88,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901214880568990}
   - component: {fileID: 212420464632820062}
+  - component: {fileID: 114582285360263278}
   m_Layer: 10
   m_Name: PlayerRender
   m_TagString: Untagged
@@ -146,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 1749733888599484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4130703627486856}
   m_RootOrder: 2
@@ -246,9 +249,15 @@ MonoBehaviour:
   isJumping: 0
   isAttacking: 0
   playerMovement: 0
+  isStunned: 0
+  regularSprite: {fileID: 21300000, guid: 4b3d4caeee60a4b888b224e45bdee8dc, type: 3}
+  stunnedSprite: {fileID: 21300000, guid: e6cf18e47f7be4466a41757e5ae10416, type: 3}
+  holdingBallSprite: {fileID: 21300000, guid: 6d5cdb8be75604360a6fbd915b81cb51, type: 3}
   hasBall: 0
   thisPlayer: 2
   playerTeam: 0
+  characterController: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!114 &114175347536023762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,7 +277,7 @@ MonoBehaviour:
     m_Bits: 12032
   m_WhatIsWall:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 0
   m_Grounded: 0
   m_CanWallJump: 0
 --- !u!114 &114392671104441566
@@ -280,6 +289,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114582285360263278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1749733888599484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac72fb1d67284abf9fcac239f16e647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sRenderer: {fileID: 0}
+  player: {fileID: 0}
+--- !u!114 &114673123385165618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702223387278866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114739695132896946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702223387278866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212247711900155996
@@ -315,7 +359,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e005793ce5b14c2990619dfff075a2b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.09019608, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -356,9 +400,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 24f611ea5cece4bc2ba2e68cb650a9f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b3d4caeee60a4b888b224e45bdee8dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.88, y: 0.92}
