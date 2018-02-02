@@ -14,9 +14,27 @@ public class ScoreManager : MonoBehaviour {
 	public PlayerSpawnLocation playerSpawner;
 	public Ball ball;
 	public AudioSource goalScoreSoundFX, goalScoreVoice;
+	public SpriteRenderer backgroundSprite;
+	public Color standard, red, blue;
 
+	void Awake () {
+		backgroundSprite.color = standard;
+	}
 
 	void Update() {
+//		if (playerWithBall){
+//			if (playerWithBall.playerTeam==Player.Team.Red) {
+//				backgroundSprite.color = Color.Lerp(standard,blue,Time.deltaTime * 2f);
+//				print ("fuck");
+//			} else if (playerWithBall.playerTeam==Player.Team.Blue) {
+//				backgroundSprite.color = Color.Lerp(standard,red,Time.deltaTime * 2f);
+//				print ("red");
+//			} else {
+//				backgroundSprite.color = standard;
+//			}
+//		}
+
+
 		if (playerIsOnLeftDoor==true && playerIsOnRightDoor==true) {
 			if (playerOnLeftDoor.playerTeam==playerOnRightDoor.playerTeam) {
 				if (playerWithBall.playerTeam==playerOnLeftDoor.playerTeam) {
@@ -87,7 +105,8 @@ public class ScoreManager : MonoBehaviour {
 	void BlueTeamScores() {
 		scoringData.blueScoreCount +=1;
 		goalPanel.SetActive(true);
-//		ball.gameObject.SetActive(false);
+		ball.DropBall();
+
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;;
