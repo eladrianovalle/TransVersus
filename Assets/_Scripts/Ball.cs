@@ -51,7 +51,6 @@ public class Ball : MonoBehaviour {
 	{
 		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-//		rBody.enabled = !isVisibe;
 
 		var timeToWait = 0.0f;
 		if (!isVisibe) {timeToWait = 1f;}
@@ -73,7 +72,6 @@ public class Ball : MonoBehaviour {
 	{
 		playerInPossession.hasBall = false;
 		playerInPossession = null;
-//		playerInPossession.hasBall = false;
 		scoreManager.SetPlayerWithBall(null);
 		this.transform.position = transform.parent.position + transform.parent.transform.right;
 		this.transform.parent = null;

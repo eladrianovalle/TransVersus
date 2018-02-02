@@ -55,6 +55,8 @@ public class Player : MonoBehaviour {
 
 		if (hasBall == true) {
 			spriteR.sprite = holdingBallSprite;
+		} else {
+			spriteR.sprite = regularSprite;
 		}
 		if (isStunned) {
 			playerMovement = 0f;
@@ -66,7 +68,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isAttacking) {
-			Debug.Log (this.name + " is Attacking!!!");
+//			Debug.Log (this.name + " is Attacking!!!");
 			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
 			weapon.gameObject.SetActive (true);
 		} 
