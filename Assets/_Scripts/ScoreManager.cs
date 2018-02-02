@@ -9,11 +9,10 @@ public class ScoreManager : MonoBehaviour {
 	private bool playerIsOnLeftDoor, playerIsOnRightDoor;
 	public Scoring scoringData;
 	public LevelManager levelManager;
-//	public CountdownTimer countDownTimer;
 	public GameObject goalPanel;
 	public BallSpawner ballSpawner;
 	public PlayerSpawnLocation playerSpawner;
-
+	public Ball ball;
 	public AudioSource goalScoreSoundFX, goalScoreVoice;
 
 
@@ -77,9 +76,9 @@ public class ScoreManager : MonoBehaviour {
 
 	void RedTeamScores(){
 		scoringData.redScoreCount +=1;
-//		countDownTimer.SetTimer(4f);
 		goalPanel.SetActive(true);
-		playerWithBall.GetStunned();
+		ball.DropBall();
+
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;
@@ -87,9 +86,8 @@ public class ScoreManager : MonoBehaviour {
 
 	void BlueTeamScores() {
 		scoringData.blueScoreCount +=1;
-//		countDownTimer.SetTimer(4f);
 		goalPanel.SetActive(true);
-		playerWithBall.GetStunned();
+//		ball.gameObject.SetActive(false);
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;;
@@ -99,6 +97,7 @@ public class ScoreManager : MonoBehaviour {
 		yield return new WaitForSeconds (4f);
 		playerSpawner.SetLeftPlayerLocation();
 		playerSpawner.SetRightPlayerLocation();
+		ball.gameObject.SetActive(true);
 		ballSpawner.SetBallLocation();
 		goalPanel.SetActive(false);
 	}

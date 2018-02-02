@@ -66,7 +66,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isAttacking) {
-			Debug.Log (this.name + " is Attacking!!!");
+//			Debug.Log (this.name + " is Attacking!!!");
 			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
 			weapon.gameObject.SetActive (true);
 		} 

@@ -24,7 +24,7 @@ namespace UnityStandardAssets._2D
         const float k_WallRadius = .3f; // Radius of the overlap circle to determine if the player can stand up
 		[SerializeField] private bool m_CanWallJump;            // Whether or not the player is grounded.
 
-        private Animator m_Anim;            // Reference to the player's animator component.
+//        private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
@@ -33,7 +33,7 @@ namespace UnityStandardAssets._2D
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_WallCheck = transform.Find("WallCheck");
-            m_Anim = GetComponent<Animator>();
+//            m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
@@ -147,7 +147,7 @@ namespace UnityStandardAssets._2D
             // If the player should jump...
 			if (m_Grounded && jump || m_CanWallJump && jump)
             {
-				Debug.Log (this.name + " is Jumping!!!");
+//				Debug.Log (this.name + " is Jumping!!!");
                 // Add a vertical force to the player.
                 m_Grounded = false;
 				m_CanWallJump = false;
