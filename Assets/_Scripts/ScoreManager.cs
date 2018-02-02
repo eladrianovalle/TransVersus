@@ -96,7 +96,7 @@ public class ScoreManager : MonoBehaviour {
 		scoringData.redScoreCount +=1;
 		goalPanel.SetActive(true);
 		ball.DropBall();
-
+		playerSpawner.PlayerIsDisabled();
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;
@@ -106,7 +106,7 @@ public class ScoreManager : MonoBehaviour {
 		scoringData.blueScoreCount +=1;
 		goalPanel.SetActive(true);
 		ball.DropBall();
-
+		playerSpawner.PlayerIsDisabled();
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;;
@@ -116,6 +116,7 @@ public class ScoreManager : MonoBehaviour {
 		yield return new WaitForSeconds (4f);
 		playerSpawner.SetLeftPlayerLocation();
 		playerSpawner.SetRightPlayerLocation();
+		playerSpawner.PlayerIsEnabled();
 		ball.gameObject.SetActive(true);
 		ballSpawner.SetBallLocation();
 		goalPanel.SetActive(false);

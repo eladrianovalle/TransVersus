@@ -2259,66 +2259,6 @@ Prefab:
       propertyPath: backgroundSprite
       value: 
       objectReference: {fileID: 347249016}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: red.r
-      value: 0.9843137
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: red.g
-      value: 0.4509804
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: red.b
-      value: 0.45882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: blue.r
-      value: 0.29803923
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: blue.g
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: blue.b
-      value: 0.90588236
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: standard.r
-      value: 0.5882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: standard.g
-      value: 0.5882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: standard.b
-      value: 0.5882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: standard.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: red.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
-        type: 2}
-      propertyPath: blue.a
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1f1e725c7e3f46ac90c9029976538ee, type: 2}
   m_IsPrefabParent: 0

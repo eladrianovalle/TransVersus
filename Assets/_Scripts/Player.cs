@@ -55,6 +55,8 @@ public class Player : MonoBehaviour {
 
 		if (hasBall == true) {
 			spriteR.sprite = holdingBallSprite;
+		} else {
+			spriteR.sprite = regularSprite;
 		}
 		if (isStunned) {
 			playerMovement = 0f;

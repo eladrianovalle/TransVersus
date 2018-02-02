@@ -221,8 +221,13 @@ MonoBehaviour:
   goalPanel: {fileID: 0}
   ballSpawner: {fileID: 0}
   playerSpawner: {fileID: 114494677678882650}
+  ball: {fileID: 0}
   goalScoreSoundFX: {fileID: 82379804349255380}
   goalScoreVoice: {fileID: 82314884408014582}
+  backgroundSprite: {fileID: 0}
+  standard: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+  red: {r: 0.9843137, g: 0.4509804, b: 0.45882353, a: 1}
+  blue: {r: 0.29803923, g: 0.5019608, b: 0.90588236, a: 1}
 --- !u!114 &114494677678882650
 MonoBehaviour:
   m_ObjectHideFlags: 1
