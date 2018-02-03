@@ -63,6 +63,7 @@ public class ScoreDoor : MonoBehaviour {
 
 	public void OpenScoreDoor() {
 		spriteRenderer.sprite = doorOpen;
+		print ("this sprite is not changing.");
 	}
 
 }

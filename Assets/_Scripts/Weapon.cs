@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour {
 	private Collider2D coll;
 	private float hitTimeFrame = .15f;
 	private float hitTimer;
-	private float thrustDirection = 5000f;
+	private float thrustDirection = 20000f;
 
 	void OnEnable()
 	{
