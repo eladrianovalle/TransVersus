@@ -23,18 +23,20 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	void Update() {
-		if (playerWithBall){
-			if (playerWithBall.playerTeam==Player.Team.Red) {
+		if (playerWithBall) {
+			if (playerWithBall.playerTeam == Player.Team.Red) {
 //				backgroundSprite.color = Color.Lerp(standard,blue,Time.deltaTime * 2f);
-				musicManager.PlayRedTeamTheme();
+				musicManager.PlayRedTeamTheme ();
 				print ("RED Team Has the Ball!");
-			} else if (playerWithBall.playerTeam==Player.Team.Blue) {
+			} else if (playerWithBall.playerTeam == Player.Team.Blue) {
 //				backgroundSprite.color = Color.Lerp(standard,red,Time.deltaTime * 2f);
-				musicManager.PlayBlueTeamTheme();
+				musicManager.PlayBlueTeamTheme ();
 				print ("BLUE TEAM SON");
 			} else {
 				backgroundSprite.color = standard;
 			}
+		} else {
+			musicManager.PlayFilteredBGtrack ();
 		}
 
 

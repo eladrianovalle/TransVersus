@@ -80,7 +80,7 @@ public class MusicManager : MonoBehaviour {
 
 	void Start()
 	{
-		themeVolume = 1.0f;
+		themeVolume = 0.5f;
 		foreach (AudioSource a in audioSources) {
 			a.Play ();
 		}
@@ -96,7 +96,7 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayRedTeamTheme()
 	{
-		themeVolume = 1f;
+		themeVolume = 0.5f;
 		filteredThemeVolume = 0f;
 		redTrackVolume = 1f;
 		blueTrackVolume = 0f;
@@ -104,7 +104,7 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayBlueTeamTheme()
 	{
-		themeVolume = 1f;
+		themeVolume = 0.5f;
 		filteredThemeVolume = 0f;
 		redTrackVolume = 0f;
 		blueTrackVolume = 1f;
@@ -112,7 +112,7 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayBGtrack()
 	{		
-		themeVolume = 1f;
+		themeVolume = 0.5f;
 		filteredThemeVolume = 0f;
 		redTrackVolume = 0f;
 		blueTrackVolume = 0f;

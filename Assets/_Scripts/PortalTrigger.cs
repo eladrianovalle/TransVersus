@@ -10,19 +10,20 @@ public class PortalTrigger : MonoBehaviour {
 
 	public enum Color {Red,Green,Blue};
 	public Color thisColor;
+	public AudioSource portalSound;
 
 	// Use this for initialization
 	void Start () {
 		portals = GetComponentInParent<Portals>();
+		portalSound = GetComponent<AudioSource> ();
 	}
 	
 
 
 	void OnTriggerEnter2D(Collider2D other) {
-
-		if (other.gameObject.tag == "Player") {
-			playerInPortal = other.gameObject;
-
+		playerInPortal = other.gameObject;
+		portalSound.Play ();
+		if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ball") {
 			if (this.transform.position.x > 0) {
 				if (thisColor == Color.Red) {
 					playerInPortal.transform.position = new Vector2 (portals.leftPortalRed.transform.position.x - spacing, portals.leftPortalRed.transform.position.y);
@@ -46,8 +47,10 @@ public class PortalTrigger : MonoBehaviour {
 					playerInPortal = null;
 				}
 			}
-
 		}
+
+
+	
 	}
 
 

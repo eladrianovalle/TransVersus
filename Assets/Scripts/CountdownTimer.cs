@@ -23,6 +23,7 @@ public class CountdownTimer : MonoBehaviour {
 
 	void Awake() {
 		SetTimer(3f);
+//		CountDownCanvas.gameObject.SetActive (true);
 	}
 
 	void Start () {
@@ -55,6 +56,7 @@ public class CountdownTimer : MonoBehaviour {
 
 	public void SetTimer(float time){
 		timer = time;
+		print ("timer set to 3");
 	}
 }
 
