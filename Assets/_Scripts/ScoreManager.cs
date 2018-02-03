@@ -16,23 +16,26 @@ public class ScoreManager : MonoBehaviour {
 	public AudioSource goalScoreSoundFX, goalScoreVoice;
 	public SpriteRenderer backgroundSprite;
 	public Color standard, red, blue;
+	public MusicManager musicManager;
 
 	void Awake () {
 		backgroundSprite.color = standard;
 	}
 
 	void Update() {
-//		if (playerWithBall){
-//			if (playerWithBall.playerTeam==Player.Team.Red) {
+		if (playerWithBall){
+			if (playerWithBall.playerTeam==Player.Team.Red) {
 //				backgroundSprite.color = Color.Lerp(standard,blue,Time.deltaTime * 2f);
-//				print ("fuck");
-//			} else if (playerWithBall.playerTeam==Player.Team.Blue) {
+				musicManager.PlayRedTeamTheme();
+				print ("RED Team Has the Ball!");
+			} else if (playerWithBall.playerTeam==Player.Team.Blue) {
 //				backgroundSprite.color = Color.Lerp(standard,red,Time.deltaTime * 2f);
-//				print ("red");
-//			} else {
-//				backgroundSprite.color = standard;
-//			}
-//		}
+				musicManager.PlayBlueTeamTheme();
+				print ("BLUE TEAM SON");
+			} else {
+				backgroundSprite.color = standard;
+			}
+		}
 
 
 		if (playerIsOnLeftDoor==true && playerIsOnRightDoor==true) {

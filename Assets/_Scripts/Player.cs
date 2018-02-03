@@ -60,6 +60,7 @@ public class Player : MonoBehaviour {
 		}
 		if (isStunned) {
 			playerMovement = 0f;
+			spriteR.sprite = stunnedSprite;
 		}
 
 		if (isJumping) {
