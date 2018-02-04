@@ -6,20 +6,20 @@ public class Ball : MonoBehaviour {
 
 	private SpriteRenderer sRenderer;
 	private Collider2D coll;
-	private Rigidbody2D rBody;
+//	private Rigidbody2D rBody;
 	private float dropBallTimer;
 
 	public bool canScore = false;
 	public bool isVisibe = false;
 	public ScoreManager scoreManager;
-
+	public BallSpawner ballSpawner;
 	public Player playerInPossession, playerWhoDroppedBall;
 
 	void Awake () 
 	{
 		sRenderer = GetComponentInChildren<SpriteRenderer> ();
 		coll = GetComponent<Collider2D> ();
-		rBody = GetComponent<Rigidbody2D> ();
+//		rBody = GetComponent<Rigidbody2D> ();
 	}
 
 	void Start()
@@ -27,15 +27,14 @@ public class Ball : MonoBehaviour {
 		ShowBall (true);
 	}
 	
-	void Update () 
-	{
-		if (playerInPossession != null)
-		{
-			if (playerInPossession.isStunned)
-			{
+	void Update () {
+		if (playerInPossession != null) {
+			if (playerInPossession.isStunned) {
 				DropBall ();
 			}
 		}
+
+	
 
 		if (dropBallTimer > 0) {
 			dropBallTimer -= Time.deltaTime;
@@ -72,6 +71,7 @@ public class Ball : MonoBehaviour {
 		StartCoroutine(ShowBall (false));
 		playerInPossession = player;
 		playerInPossession.hasBall = true;
+		print (player.name + " has ball now.");
 		scoreManager.SetPlayerWithBall(player);
 		this.transform.parent = player.transform;
 		this.transform.position = transform.parent.position;
