@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 212774703783399662}
   - component: {fileID: 58059625793208082}
   - component: {fileID: 114079289227355906}
-  - component: {fileID: 114132547941817876}
   m_Layer: 15
   m_Name: Weapon
   m_TagString: Weapon
@@ -258,17 +257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sRenderer: {fileID: 0}
   player: {fileID: 0}
---- !u!114 &114132547941817876
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763067010077802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114369711523614314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,10 +310,12 @@ MonoBehaviour:
   stunnedSprite: {fileID: 21300000, guid: 44919025832d4439fa7d2b66fcf4a83f, type: 3}
   holdingBallSprite: {fileID: 21300000, guid: 70e33ee1c95d94304b9349442fd17dc5, type: 3}
   hasBall: 0
+  onScoreDoor: 0
   thisPlayer: 0
   playerTeam: 0
   characterController: {fileID: 0}
   weapon: {fileID: 0}
+  usedWeapon: 0
 --- !u!212 &212774703783399662
 SpriteRenderer:
   m_ObjectHideFlags: 1

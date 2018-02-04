@@ -23,7 +23,9 @@ public class Player : MonoBehaviour {
 	public Sprite stunnedSprite;
 	public Sprite holdingBallSprite;
 
-	public bool hasBall;
+	public bool hasBall, onScoreDoor;
+
+	public ScoreManager scoreManager;
 
 	public enum PlayerID {
 		PlayerOne, PlayerTwo, PlayerThree, PlayerFour
@@ -50,6 +52,8 @@ public class Player : MonoBehaviour {
 		characterController = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ();
 		spriteR = GetComponentInChildren<SpriteRenderer>();
 		weapon.gameObject.SetActive (false);
+		hasBall = false;
+		onScoreDoor = false;
 	}
 	
 	void Update () {
@@ -85,6 +89,10 @@ public class Player : MonoBehaviour {
 			}
 
 		} 
+
+		if (onScoreDoor) {
+			scoreManager.checkScoreCondition = true;
+		}
 
 		if (stunnedTimer > 0) {
 			stunnedTimer -= Time.deltaTime;
