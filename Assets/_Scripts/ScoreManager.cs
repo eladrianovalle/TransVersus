@@ -9,15 +9,39 @@ public class ScoreManager : MonoBehaviour {
 	private bool playerIsOnLeftDoor, playerIsOnRightDoor;
 	public Scoring scoringData;
 	public LevelManager levelManager;
-//	public CountdownTimer countDownTimer;
 	public GameObject goalPanel;
 	public BallSpawner ballSpawner;
 	public PlayerSpawnLocation playerSpawner;
-
+	public Ball ball;
 	public AudioSource goalScoreSoundFX, goalScoreVoice;
+	public SpriteRenderer backgroundSprite;
+	public Color standard, red, blue;
+	public MusicManager musicManager;
 
+	void Awake () {
+		backgroundSprite.color = standard;
+	}
 
 	void Update() {
+		if (playerWithBall) {
+			if (playerWithBall.playerTeam == Player.Team.Red) {
+				backgroundSprite.color = red;
+//					Color.Lerp(standard,blue,Time.deltaTime * 2f);
+				musicManager.PlayRedTeamTheme ();
+				print ("RED Team Has the Ball!");
+			} else if (playerWithBall.playerTeam == Player.Team.Blue) {
+				backgroundSprite.color = blue;
+//					Color.Lerp(standard,red,Time.deltaTime * 2f);
+				musicManager.PlayBlueTeamTheme ();
+				print ("BLUE TEAM SON");
+			} else {
+				backgroundSprite.color = standard;
+			}
+		} else {
+			musicManager.PlayFilteredBGtrack ();
+		}
+
+
 		if (playerIsOnLeftDoor==true && playerIsOnRightDoor==true) {
 			if (playerOnLeftDoor.playerTeam==playerOnRightDoor.playerTeam) {
 				if (playerWithBall.playerTeam==playerOnLeftDoor.playerTeam) {
@@ -77,9 +101,9 @@ public class ScoreManager : MonoBehaviour {
 
 	void RedTeamScores(){
 		scoringData.redScoreCount +=1;
-//		countDownTimer.SetTimer(4f);
 		goalPanel.SetActive(true);
-		playerWithBall.GetStunned();
+		ball.DropBall();
+		playerSpawner.PlayerIsDisabled();
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;
@@ -87,9 +111,9 @@ public class ScoreManager : MonoBehaviour {
 
 	void BlueTeamScores() {
 		scoringData.blueScoreCount +=1;
-//		countDownTimer.SetTimer(4f);
 		goalPanel.SetActive(true);
-		playerWithBall.GetStunned();
+		ball.DropBall();
+		playerSpawner.PlayerIsDisabled();
 		StartCoroutine (ResetGame());
 		playerIsOnLeftDoor = false;
 		playerIsOnRightDoor = false;;
@@ -99,6 +123,8 @@ public class ScoreManager : MonoBehaviour {
 		yield return new WaitForSeconds (4f);
 		playerSpawner.SetLeftPlayerLocation();
 		playerSpawner.SetRightPlayerLocation();
+		playerSpawner.PlayerIsEnabled();
+		ball.gameObject.SetActive(true);
 		ballSpawner.SetBallLocation();
 		goalPanel.SetActive(false);
 	}

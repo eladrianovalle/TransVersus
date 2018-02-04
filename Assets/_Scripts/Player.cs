@@ -16,6 +16,9 @@ public class Player : MonoBehaviour {
 	private float stunnedTime = 2f;
 	private float stunnedTimer;
 
+	private float coolDownTime = 2f;
+	private float coolDownTimer;
+
 	public Sprite regularSprite;
 	public Sprite stunnedSprite;
 	public Sprite holdingBallSprite;
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour {
 //	public NinjaController.NinjaController playerController;
 
 	public Weapon weapon;
+	public bool usedWeapon = false;
 
 	private SpriteRenderer spriteR;
 
@@ -45,19 +49,26 @@ public class Player : MonoBehaviour {
 		weapon = GetComponentInChildren<Weapon> ();
 		characterController = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ();
 		spriteR = GetComponentInChildren<SpriteRenderer>();
+		weapon.gameObject.SetActive (false);
 	}
 	
 	void Update () {
-		isJumping = player.GetButtonDown ("Jump");
+		if (isStunned == false) {
+			isJumping = player.GetButtonDown ("Jump");
+		}
+
 		isAttacking = player.GetButtonDown ("Attack");
 
 		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-		if (hasBall == true) {
+		if (hasBall) {
 			spriteR.sprite = holdingBallSprite;
+		} else {
+			spriteR.sprite = regularSprite;
 		}
 		if (isStunned) {
 			playerMovement = 0f;
+			spriteR.sprite = stunnedSprite;
 		}
 
 		if (isJumping) {
@@ -66,9 +77,13 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isAttacking) {
-			Debug.Log (this.name + " is Attacking!!!");
-			MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
-			weapon.gameObject.SetActive (true);
+//			Debug.Log (this.name + " is Attacking!!!");
+			if (usedWeapon==false){
+				MusicManager.instance.PlaySFX (MusicManager.instance.hitClip);
+				weapon.gameObject.SetActive (true);
+				UsedWeapon ();
+			}
+
 		} 
 
 		if (stunnedTimer > 0) {
@@ -77,11 +92,23 @@ public class Player : MonoBehaviour {
 			isStunned = false;
 		}
 
+
+		if (coolDownTimer > 0) {
+			coolDownTimer -= Time.deltaTime;
+			print ("cool down son"); 
+		} else {
+			usedWeapon = false;
+		}
 	}
 
 	public void GetStunned() {
 		isStunned = true;
 		stunnedTimer = stunnedTime;
+	}
+
+	public void UsedWeapon() {
+		usedWeapon = true;
+		coolDownTimer = coolDownTime;
 	}
 
 }

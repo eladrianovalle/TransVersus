@@ -31,5 +31,17 @@ public class PlayerSpawnLocation : MonoBehaviour {
 		Player4.transform.position = new Vector2 (rightLocation2[number2].x, rightLocation2[number2].y);
 	}
 
+	public void PlayerIsEnabled(){
+		Player1.SetActive(true);
+		Player2.SetActive(true);
+		Player3.SetActive(true);
+		Player4.SetActive(true);
+	}
 
+	public void PlayerIsDisabled(){
+		Player1.SetActive(false);
+		Player2.SetActive(false);
+		Player3.SetActive(false);
+		Player4.SetActive(false);
+	}
 }
