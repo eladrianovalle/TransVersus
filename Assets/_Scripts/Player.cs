@@ -76,7 +76,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isJumping) {
-			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
+//			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
 //			Debug.Log (this.name + " is Jumping!!!");
 		}
 
