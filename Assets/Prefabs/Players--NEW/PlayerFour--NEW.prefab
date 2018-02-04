@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 212880486780479216}
   - component: {fileID: 58940386987154516}
   - component: {fileID: 114103521171838028}
-  - component: {fileID: 114712245358879390}
   m_Layer: 18
   m_Name: Weapon
   m_TagString: Weapon
@@ -157,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695065833871496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 26, z: 0}
+  m_LocalPosition: {x: 25.08, y: 1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4163153733430488}
@@ -257,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 20
-  m_JumpForce: 18000
+  m_JumpForce: 20000
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -280,17 +279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sRenderer: {fileID: 0}
   player: {fileID: 0}
---- !u!114 &114712245358879390
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1839227771251476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8789e34decdc749468d0750b7ad946f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114767349925933750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,10 +310,13 @@ MonoBehaviour:
   stunnedSprite: {fileID: 21300000, guid: e018fdfbce9784de89bdc7cc36da6be3, type: 3}
   holdingBallSprite: {fileID: 21300000, guid: b24292c60205b4ca7a7714ca315d17f4, type: 3}
   hasBall: 0
+  onScoreDoor: 0
+  scoreManager: {fileID: 0}
   thisPlayer: 3
   playerTeam: 1
   characterController: {fileID: 0}
   weapon: {fileID: 0}
+  usedWeapon: 0
 --- !u!212 &212514940480795138
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -360,7 +351,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 468b93879398f46e893811fb3a2112ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.88, y: 0.92}
@@ -401,7 +392,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e005793ce5b14c2990619dfff075a2b, type: 3}
-  m_Color: {r: 0.35599995, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.35599995, g: 0, b: 1, a: 0.15686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
