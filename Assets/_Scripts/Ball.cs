@@ -7,12 +7,13 @@ public class Ball : MonoBehaviour {
 	private SpriteRenderer sRenderer;
 	private Collider2D coll;
 	private Rigidbody2D rBody;
+	private float dropBallTimer;
 
 	public bool canScore = false;
 	public bool isVisibe = false;
 	public ScoreManager scoreManager;
 
-	public Player playerInPossession;
+	public Player playerInPossession, playerWhoDroppedBall;
 
 	void Awake () 
 	{
@@ -35,7 +36,12 @@ public class Ball : MonoBehaviour {
 				DropBall ();
 			}
 		}
-		
+
+		if (dropBallTimer > 0) {
+			dropBallTimer -= Time.deltaTime;
+		} else {
+			playerWhoDroppedBall = null;
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
@@ -43,7 +49,10 @@ public class Ball : MonoBehaviour {
 		if (other.gameObject.tag == "Player")
 		{
 			var player = other.gameObject.GetComponent<Player> ();
-			PickupBall (player);
+			if (player != playerInPossession) {
+				PickupBall (player);
+			}
+
 		}
 	}
 
@@ -71,6 +80,8 @@ public class Ball : MonoBehaviour {
 	public void DropBall()
 	{
 		playerInPossession.hasBall = false;
+		playerInPossession = playerWhoDroppedBall;
+		dropBallTimer = 2.5f;
 		playerInPossession = null;
 		scoreManager.SetPlayerWithBall(null);
 		this.transform.position = transform.parent.position + transform.parent.transform.right;

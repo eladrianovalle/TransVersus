@@ -933,6 +933,11 @@ Prefab:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 82323700554441826, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
   m_IsPrefabParent: 0
@@ -1203,6 +1208,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114397403471678066, guid: 2923f5b602f354dc9b32efef04a333ad,
+        type: 2}
+      propertyPath: playerID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114978443315102462, guid: 2923f5b602f354dc9b32efef04a333ad, type: 2}
@@ -1667,10 +1677,6 @@ Prefab:
     - target: {fileID: 4847691532395128, guid: 9d1566ef0508d4f8d9012d0deeac2233, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1753744330380896, guid: 9d1566ef0508d4f8d9012d0deeac2233, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d1566ef0508d4f8d9012d0deeac2233, type: 2}
@@ -2197,6 +2203,11 @@ Prefab:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 82323700554441826, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bc5078488f854ccd8e6ac3d9cbc6a09, type: 2}
   m_IsPrefabParent: 0
@@ -2388,7 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 962250632}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1362112954
@@ -3358,6 +3369,11 @@ Prefab:
     - target: {fileID: 212247711900155996, guid: b0bf3fe88113c4d6f8f663d88aa5b437,
         type: 2}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114084591154129324, guid: b0bf3fe88113c4d6f8f663d88aa5b437,
+        type: 2}
+      propertyPath: playerID
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:

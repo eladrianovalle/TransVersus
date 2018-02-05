@@ -26,10 +26,10 @@ public class MusicManager : MonoBehaviour {
 	private AudioSource bgFilteredTrack;
 	private AudioSource sFX;
 
-	private float themeVolume = 0f;
-	private float filteredThemeVolume = 0f;
-	private float redTrackVolume = 0f;
-	private float blueTrackVolume = 0f;
+	private float themeVolume = 0.6f;
+	private float filteredThemeVolume = 0.6f;
+	private float redTrackVolume = 0.6f;
+	private float blueTrackVolume = 0.6f;
 
 
 	private float smoothing = 0.005f;
@@ -73,14 +73,14 @@ public class MusicManager : MonoBehaviour {
 			if (a.name == "SFX") 
 			{
 				sFX = a;
-				sFX.volume = 1.0f;
+				sFX.volume = 0.5f;
 			}
 		}
 	}
 
 	void Start()
 	{
-		themeVolume = 1.0f;
+		themeVolume = 0.5f;
 		foreach (AudioSource a in audioSources) {
 			a.Play ();
 		}
@@ -96,7 +96,7 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayRedTeamTheme()
 	{
-		themeVolume = 1f;
+		themeVolume = 0.5f;
 		filteredThemeVolume = 0f;
 		redTrackVolume = 1f;
 		blueTrackVolume = 0f;
@@ -104,7 +104,7 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayBlueTeamTheme()
 	{
-		themeVolume = 1f;
+		themeVolume = 0.5f;
 		filteredThemeVolume = 0f;
 		redTrackVolume = 0f;
 		blueTrackVolume = 1f;
@@ -112,7 +112,7 @@ public class MusicManager : MonoBehaviour {
 
 	public void PlayBGtrack()
 	{		
-		themeVolume = 1f;
+		themeVolume = 0.5f;
 		filteredThemeVolume = 0f;
 		redTrackVolume = 0f;
 		blueTrackVolume = 0f;
