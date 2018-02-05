@@ -26,10 +26,10 @@ public class MusicManager : MonoBehaviour {
 	private AudioSource bgFilteredTrack;
 	private AudioSource sFX;
 
-	private float themeVolume = 0f;
-	private float filteredThemeVolume = 0f;
-	private float redTrackVolume = 0f;
-	private float blueTrackVolume = 0f;
+	private float themeVolume = 0.6f;
+	private float filteredThemeVolume = 0.6f;
+	private float redTrackVolume = 0.6f;
+	private float blueTrackVolume = 0.6f;
 
 
 	private float smoothing = 0.005f;
@@ -73,7 +73,7 @@ public class MusicManager : MonoBehaviour {
 			if (a.name == "SFX") 
 			{
 				sFX = a;
-				sFX.volume = 1.0f;
+				sFX.volume = 0.5f;
 			}
 		}
 	}

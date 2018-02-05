@@ -51,11 +51,11 @@ public class ScoreManager : MonoBehaviour {
 						rightScoreDoor.OpenScoreDoor();
 					}
 					if (playerWithBall.playerID==0 || playerWithBall.playerID==2) {
-						goalScoreSoundFX.Play();
+//						goalScoreSoundFX.Play();
 						goalScoreVoice.Play();
 						RedTeamScores();
 					} else {
-						goalScoreSoundFX.Play();
+//						goalScoreSoundFX.Play();
 						goalScoreVoice.Play();
 						BlueTeamScores();
 					}
