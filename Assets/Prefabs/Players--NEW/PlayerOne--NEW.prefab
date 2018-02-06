@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 20
-  m_JumpForce: 18000
+  m_JumpForce: 20000
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -311,6 +311,7 @@ MonoBehaviour:
   holdingBallSprite: {fileID: 21300000, guid: 70e33ee1c95d94304b9349442fd17dc5, type: 3}
   hasBall: 0
   onScoreDoor: 0
+  scoreManager: {fileID: 0}
   thisPlayer: 0
   playerTeam: 0
   characterController: {fileID: 0}
@@ -349,7 +350,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e005793ce5b14c2990619dfff075a2b, type: 3}
-  m_Color: {r: 1, g: 0.09019608, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.09019608, b: 0, a: 0.15686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

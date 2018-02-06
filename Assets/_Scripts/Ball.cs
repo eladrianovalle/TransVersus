@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour {
 	public bool isVisibe = false;
 	public ScoreManager scoreManager;
 	public BallSpawner ballSpawner;
-	public Player playerInPossession, playerWhoDroppedBall;
+	public Player playerInPossession, playerWhoDroppedBall, player1, player2, player3, player4;
 
 	void Awake () 
 	{
@@ -47,8 +47,8 @@ public class Ball : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			var player = other.gameObject.GetComponent<Player> ();
-			if (player != playerInPossession) {
+			Player player = other.gameObject.GetComponent<Player> ();
+			if (player != playerWhoDroppedBall) {
 				PickupBall (player);
 			}
 
@@ -59,19 +59,29 @@ public class Ball : MonoBehaviour {
 	{
 		isVisibe = showBall;
 		sRenderer.enabled = isVisibe;
-
+		player1.hasBall=false;
+		player2.hasBall=false;
+		player3.hasBall=false;
+		player4.hasBall=false;
 		var timeToWait = 0.0f;
 		if (!isVisibe) {timeToWait = 1f;}
 		yield return new WaitForSecondsRealtime (timeToWait);
 		coll.enabled = isVisibe;
 	}
 
+//	public void ShowBall(bool showBall){
+//		isVisibe = showBall;
+//		sRenderer.enabled = isVisibe;
+//		coll.enabled = isVisibe;
+//	}
+
 	public void PickupBall(Player player)
 	{
 		StartCoroutine(ShowBall (false));
+//		ShowBall(false);
 		playerInPossession = player;
 		playerInPossession.hasBall = true;
-		print (player.name + " has ball now.");
+//		print (player.name + " has ball now.");
 		scoreManager.SetPlayerWithBall(player);
 		this.transform.parent = player.transform;
 		this.transform.position = transform.parent.position;
@@ -81,12 +91,14 @@ public class Ball : MonoBehaviour {
 	{
 		playerInPossession.hasBall = false;
 		playerInPossession = playerWhoDroppedBall;
-		dropBallTimer = 2.5f;
+		dropBallTimer = 1.25f;
+
 		playerInPossession = null;
 		scoreManager.SetPlayerWithBall(null);
 		this.transform.position = transform.parent.position + transform.parent.transform.right;
 		this.transform.parent = null;
 		StartCoroutine(ShowBall (true));
+//		ShowBall(true);
 	}
 
 	public void PassBall(Player player)

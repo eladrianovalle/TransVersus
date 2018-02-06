@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
 	private float stunnedTime = 2f;
 	private float stunnedTimer;
 
-	private float coolDownTime = 2f;
+	public float coolDownTime;
 	private float coolDownTimer;
 
 	public Sprite regularSprite;
@@ -65,10 +65,10 @@ public class Player : MonoBehaviour {
 
 		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-		if (hasBall) {
-			spriteR.sprite = holdingBallSprite;
-		} else {
+		if (!hasBall) {
 			spriteR.sprite = regularSprite;
+		} else {
+			spriteR.sprite = holdingBallSprite;
 		}
 		if (isStunned) {
 			playerMovement = 0f;
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isJumping) {
-			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
+//			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
 //			Debug.Log (this.name + " is Jumping!!!");
 		}
 
@@ -116,6 +116,7 @@ public class Player : MonoBehaviour {
 
 	public void UsedWeapon() {
 		usedWeapon = true;
+		coolDownTime = Random.Range(1.25f, 2.75f);
 		coolDownTimer = coolDownTime;
 	}
 
