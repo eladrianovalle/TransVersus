@@ -34,8 +34,6 @@ public class Ball : MonoBehaviour {
 			}
 		}
 
-	
-
 		if (dropBallTimer > 0) {
 			dropBallTimer -= Time.deltaTime;
 		} else {
@@ -85,6 +83,7 @@ public class Ball : MonoBehaviour {
 		scoreManager.SetPlayerWithBall(player);
 		this.transform.parent = player.transform;
 		this.transform.position = transform.parent.position;
+		print ("Ball position y is " + this.transform.localPosition.y);
 	}
 
 	public void DropBall()

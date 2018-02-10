@@ -55,7 +55,6 @@ public class Weapon : MonoBehaviour {
 			other.gameObject.GetComponent<Rigidbody2D> ().AddForce ((transform.right * thrust) + (transform.up * 0.3f), ForceMode2D.Force);
 			other.GetComponent<Player> ().GetStunned ();
 
-			print("TIM");
 			Rigidbody2D ballRbody = other.gameObject.GetComponent<Rigidbody2D>();
 			ballRbody.AddForce(transform.up * ballThrust);
 

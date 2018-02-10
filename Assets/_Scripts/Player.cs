@@ -103,7 +103,6 @@ public class Player : MonoBehaviour {
 
 		if (coolDownTimer > 0) {
 			coolDownTimer -= Time.deltaTime;
-			print ("cool down son"); 
 		} else {
 			usedWeapon = false;
 		}
