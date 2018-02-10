@@ -7760,7 +7760,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 187632026}
-        m_MethodName: GoToLevel1
+        m_MethodName: LoadOptionsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -13,18 +13,16 @@ public class MasterGameTimer : MonoBehaviour
 	public bool usingTimer = false;
 
 	private float timeLeft = 123f;
-//	public TextMeshProUGUI countDownText2;
 	public GameObject gameTimer;
 
-	// Use this for initialization
+
 	void Start ()
 	{
 		SetTimer (123f);
 		StartCoroutine ("LoseTime");
 
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
 	{
 		
@@ -35,12 +33,7 @@ public class MasterGameTimer : MonoBehaviour
 		if (usingTimer) {
 			if (timeLeft <= 0) {
 				StopCoroutine ("LoseTime");
-
-				//buttonImage.sprite = Resources.Load<Sprite> ("TimesUpR");
 				gameTimer.gameObject.SetActive (false);
-				//countdownText.text = "Time's Up!";
-				//StartCoroutine ("GameOver", 2f);
-				//SceneManager.LoadScene ("GameOver");
 			}
 
 			if (timeLeft <= 121f) {
@@ -75,8 +68,6 @@ public class MasterGameTimer : MonoBehaviour
 			return;
 		}
 
-//		timeText.text = timeLeft.ToString("f2");
-//		float hours;
 
 		float time = timeLeft;
 		int minutes = Mathf.FloorToInt(time / 60);
@@ -85,21 +76,7 @@ public class MasterGameTimer : MonoBehaviour
 
 		string formattedTimerText = System.String.Format("{0:0}:{1:00}:{2:00}", minutes, seconds, milliseconds);
 		timeText.text = formattedTimerText;
-//		timeLeft.ToString("f2");
 
-//
-//		GetTimeValues (timeLeft, out hours, out minutes, out seconds, out miniseconds);
-//
-//		string m = string.Format ("{ 0:00}", miniseconds);
-//
-//		print ("m = " + m);
-//
-//		if (hours > 0)
-//			timeText.text = string.Format ("{ 0}:{ 1}", hours, minutes);
-//		else if (minutes > 0)
-//			timeText.text = string.Format ("{ 0}:{ 1}", minutes, seconds);
-//		else
-//			timeText.text = string.Format ("{ 0}:{ 1}", seconds, m);
 
 	}
 
