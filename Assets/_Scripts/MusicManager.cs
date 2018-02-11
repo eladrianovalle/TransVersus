@@ -159,6 +159,5 @@ public class MusicManager : MonoBehaviour {
 		foreach (AudioSource a in audioSources) {
 			a.volume = Mathf.Lerp (a.volume, 0, Time.time * smoothing);
 		}
-		print ("this happened");
 	}
 }
