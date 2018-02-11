@@ -1629,6 +1629,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914947639}
+--- !u!1001 &977636646
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201063781873378, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114804942249275716, guid: 4c8b1daa93abe40d0ba0b76b065a9138,
+        type: 2}
+      propertyPath: gameLengthSlider
+      value: 
+      objectReference: {fileID: 136447429}
+    - target: {fileID: 114804942249275716, guid: 4c8b1daa93abe40d0ba0b76b065a9138,
+        type: 2}
+      propertyPath: goalsAmountSlider
+      value: 
+      objectReference: {fileID: 756100271}
+    - target: {fileID: 114804942249275716, guid: 4c8b1daa93abe40d0ba0b76b065a9138,
+        type: 2}
+      propertyPath: gameLengthAmoutText
+      value: 
+      objectReference: {fileID: 1522473280}
+    - target: {fileID: 114804942249275716, guid: 4c8b1daa93abe40d0ba0b76b065a9138,
+        type: 2}
+      propertyPath: goalsAmountText
+      value: 
+      objectReference: {fileID: 306613731}
+    - target: {fileID: 114804942249275716, guid: 4c8b1daa93abe40d0ba0b76b065a9138,
+        type: 2}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 982174303}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4c8b1daa93abe40d0ba0b76b065a9138, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &982174302
 Prefab:
   m_ObjectHideFlags: 0
@@ -1729,6 +1796,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a121ace338cb84ef7810d07029bcf1bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &982174303 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114760408364262084, guid: a121ace338cb84ef7810d07029bcf1bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 982174302}
+  m_Script: {fileID: 11500000, guid: d4ab975552df043c5b025e1ba058fd20, type: 3}
 --- !u!1 &983163754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,51 +2371,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540289645}
---- !u!1 &1637012339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1637012341}
-  - component: {fileID: 1637012340}
-  m_Layer: 0
-  m_Name: Options
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1637012340
+--- !u!114 &1637012340 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1637012339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114804942249275716, guid: 4c8b1daa93abe40d0ba0b76b065a9138,
+    type: 2}
+  m_PrefabInternal: {fileID: 977636646}
   m_Script: {fileID: 11500000, guid: dcfdb4c89d5884a47a3a268241bd6829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameLengthSlider: {fileID: 136447429}
-  goalsAmountSlider: {fileID: 756100271}
-  gameLengthAmoutText: {fileID: 1522473280}
-  goalsAmountText: {fileID: 306613731}
-  timedGame: 1
---- !u!4 &1637012341
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1637012339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693090681
 GameObject:
   m_ObjectHideFlags: 0

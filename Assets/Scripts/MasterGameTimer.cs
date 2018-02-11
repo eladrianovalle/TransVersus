@@ -11,47 +11,49 @@ public class MasterGameTimer : MonoBehaviour
 	public TextMeshProUGUI timeText;
 	public float timeStamp;
 	public bool usingTimer = false;
-
-	private float timeLeft = 123f;
+	public LevelManager levelManager;
+	private float time;
 	public GameObject gameTimer;
+	public GameObject gameOverPopUp;
+	public MusicManager musicManager;
 
 
-	void Start ()
-	{
-		SetTimer (123f);
-		StartCoroutine ("LoseTime");
-
+	void Awake () {
+		if (LevelManager.timedGame==true) {
+			time = (LevelManager.gameLenght * 60f);
+			SetTimer(time);
+			StartCoroutine ("LoseTime");
+			gameTimer.gameObject.SetActive (true);
+			Debug.Log ("Timed game set to " + time);
+		} else {
+			gameTimer.SetActive(false);
+		}
 	}
 
-	void Update ()
-	{
-		
-		if (timeLeft >= 122f) {
-			gameTimer.gameObject.SetActive (false);
-		}
+
+
+	void Update () {
+
 
 		if (usingTimer) {
-			if (timeLeft <= 0) {
+			if (time <= 0) {
 				StopCoroutine ("LoseTime");
 				gameTimer.gameObject.SetActive (false);
 			}
 
-			if (timeLeft <= 121f) {
-				gameTimer.gameObject.SetActive (true);
-			}
 
-			if (timeLeft <= 15f) {
+			if (time <= 15f) {
 				timeText.color = Color.red;
 			} else {
 				timeText.color = Color.white;
 			}
 		}
 
+
 		SetUIText ();
 	}
 
-	public void SetTimer (float time)
-	{
+	public void SetTimer (float time) {
 		if (usingTimer) { return; }
 
 		timeStamp = Time.time + time;
@@ -59,11 +61,9 @@ public class MasterGameTimer : MonoBehaviour
 
 	}
 
-	public void SetUIText ()
-	{
+	public void SetUIText () {
 		float timeLeft = timeStamp - Time.time;
-		if (timeLeft <= 0) {
-			
+		if (timeLeft <= 0 && LevelManager.timedGame==true) {
 			FinishAction ();
 			return;
 		}
@@ -88,12 +88,11 @@ public class MasterGameTimer : MonoBehaviour
 		miniseconds = (int)((time - hours * 3600 - minutes * 60 - seconds) * 100);
 	}
 
-	public void FinishAction ()
-	{
-		Debug.Log ("Boom");
+	public void FinishAction () {
 		timeText.text = "00:00";
+		gameOverPopUp.SetActive(true);
 		usingTimer = false;
-
+		musicManager.FadeOutMusic();
 	}
 
 	IEnumerator	LoseTime ()
@@ -101,7 +100,7 @@ public class MasterGameTimer : MonoBehaviour
 		{
 			while (true) {
 				yield return new WaitForSeconds (1f);
-				timeLeft--;
+				time--;
 			}
 		}
 	}

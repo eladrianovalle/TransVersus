@@ -76,14 +76,12 @@ public class Ball : MonoBehaviour {
 	public void PickupBall(Player player)
 	{
 		StartCoroutine(ShowBall (false));
-//		ShowBall(false);
+
 		playerInPossession = player;
 		playerInPossession.hasBall = true;
-//		print (player.name + " has ball now.");
 		scoreManager.SetPlayerWithBall(player);
 		this.transform.parent = player.transform;
 		this.transform.position = transform.parent.position;
-		print ("Ball position y is " + this.transform.localPosition.y);
 	}
 
 	public void DropBall()

@@ -119,4 +119,7 @@ public class Player : MonoBehaviour {
 		coolDownTimer = coolDownTime;
 	}
 
+	public void DestroyGameObject (){
+		Destroy(this.gameObject);
+	}
 }

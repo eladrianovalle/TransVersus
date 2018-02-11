@@ -5,14 +5,12 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour {
 
 	private Player playerWithBall;
-//playerOnLeftDoor, playerOnRightDoor; 
 	public Player player1, player2, player3, player4;
 	public ScoreDoor leftScoreDoor, rightScoreDoor;
-//	private bool playerIsOnLeftDoor, playerIsOnRightDoor;
 	public bool checkScoreCondition;
 	public Scoring scoringData;
 	public LevelManager levelManager;
-	public GameObject goalPanel;
+	public GameObject goalPanel, gameOverPanel;
 	public BallSpawner ballSpawner;
 	public PlayerSpawnLocation playerSpawner;
 	public Ball ball;
@@ -63,55 +61,9 @@ public class ScoreManager : MonoBehaviour {
 				}
 			}
 		}
-//		if (playerIsOnLeftDoor==true && playerIsOnRightDoor==true) {
-//			if (playerOnLeftDoor.playerTeam==playerOnRightDoor.playerTeam) {
-//				if (playerWithBall.playerTeam==playerOnLeftDoor.playerTeam) {
-//					if (playerWithBall.transform.position.x < 0) {
-//						leftScoreDoor.OpenScoreDoor();
-//					} else {
-//						rightScoreDoor.OpenScoreDoor();
-//					}
-//					if (playerWithBall.playerID==0 || playerWithBall.playerID==2) {
-//						goalScoreSoundFX.Play();
-//						goalScoreVoice.Play();
-//						RedTeamScores();
-//					} else {
-//						goalScoreSoundFX.Play();
-//						goalScoreVoice.Play();
-//						BlueTeamScores();
-//					}
-//				} else {
-//					return;
-//				}
-//			} else {
-//				return;
-//			}
-//		} else {
-//			return;
-//		}
+
 	}
 
-//	public void SetPlayerOnLeftScoreDoor(Player player) {
-//		if (player) {
-//			playerOnLeftDoor = player;
-//			playerIsOnLeftDoor = true;
-//		} else {
-//			playerOnLeftDoor = null;
-//			playerIsOnLeftDoor = false;
-//		}
-//
-//	}
-//
-//	public void SetPlayerOnRightScoreDoor(Player player){
-//		if (player) {
-//			playerOnRightDoor = player;
-//			playerIsOnRightDoor = true;
-//		} else {
-//			playerOnRightDoor = null;
-//			playerIsOnRightDoor = false;
-//		}
-//
-//	}
 
 	public void SetPlayerWithBall(Player player) {
 		playerWithBall = player;
@@ -122,22 +74,36 @@ public class ScoreManager : MonoBehaviour {
 
 	void RedTeamScores(){
 		scoringData.redScoreCount +=1;
-		goalPanel.SetActive(true);
-		ball.DropBall();
-		playerSpawner.PlayerIsDisabled();
-		StartCoroutine (ResetGame());
-//		playerIsOnLeftDoor = false;
-//		playerIsOnRightDoor = false;
+		if (scoringData.redScoreCount == LevelManager.goalAmount && LevelManager.timedGame==false) {
+			gameOverPanel.SetActive(true);
+			musicManager.FadeOutMusic();
+			player1.DestroyGameObject();
+			player2.DestroyGameObject();
+			player3.DestroyGameObject();
+			player4.DestroyGameObject();
+		} else {
+			goalPanel.SetActive(true);
+			ball.DropBall();
+			playerSpawner.PlayerIsDisabled();
+			StartCoroutine (ResetGame());
+		}
 	}
 
 	void BlueTeamScores() {
 		scoringData.blueScoreCount +=1;
-		goalPanel.SetActive(true);
-		ball.DropBall();
-		playerSpawner.PlayerIsDisabled();
-		StartCoroutine (ResetGame());
-//		playerIsOnLeftDoor = false;
-//		playerIsOnRightDoor = false;;
+		if (scoringData.blueScoreCount == LevelManager.goalAmount && LevelManager.timedGame==false) {
+			gameOverPanel.SetActive(true);
+			musicManager.FadeOutMusic();
+			player1.DestroyGameObject();
+			player2.DestroyGameObject();
+			player3.DestroyGameObject();
+			player4.DestroyGameObject();
+		} else {
+			goalPanel.SetActive(true);
+			ball.DropBall();
+			playerSpawner.PlayerIsDisabled();
+			StartCoroutine (ResetGame());
+		}
 	}
 
 	private IEnumerator ResetGame () {
