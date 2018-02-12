@@ -11,54 +11,49 @@ public class MasterGameTimer : MonoBehaviour
 	public TextMeshProUGUI timeText;
 	public float timeStamp;
 	public bool usingTimer = false;
-
-	private float timeLeft = 123f;
-//	public TextMeshProUGUI countDownText2;
+	public LevelManager levelManager;
+	private float time;
 	public GameObject gameTimer;
+	public GameObject gameOverPopUp;
+	public MusicManager musicManager;
 
-	// Use this for initialization
-	void Start ()
-	{
-		SetTimer (123f);
-		StartCoroutine ("LoseTime");
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-		if (timeLeft >= 122f) {
-			gameTimer.gameObject.SetActive (false);
+	void Awake () {
+		if (LevelManager.timedGame==true) {
+			time = (LevelManager.gameLenght * 60f);
+			SetTimer(time);
+			StartCoroutine ("LoseTime");
+			gameTimer.gameObject.SetActive (true);
+			Debug.Log ("Timed game set to " + time);
+		} else {
+			gameTimer.SetActive(false);
 		}
+	}
+
+
+
+	void Update () {
+
 
 		if (usingTimer) {
-			if (timeLeft <= 0) {
+			if (time <= 0) {
 				StopCoroutine ("LoseTime");
-
-				//buttonImage.sprite = Resources.Load<Sprite> ("TimesUpR");
 				gameTimer.gameObject.SetActive (false);
-				//countdownText.text = "Time's Up!";
-				//StartCoroutine ("GameOver", 2f);
-				//SceneManager.LoadScene ("GameOver");
 			}
 
-			if (timeLeft <= 121f) {
-				gameTimer.gameObject.SetActive (true);
-			}
 
-			if (timeLeft <= 15f) {
+			if (time <= 15f) {
 				timeText.color = Color.red;
 			} else {
 				timeText.color = Color.white;
 			}
 		}
 
+
 		SetUIText ();
 	}
 
-	public void SetTimer (float time)
-	{
+	public void SetTimer (float time) {
 		if (usingTimer) { return; }
 
 		timeStamp = Time.time + time;
@@ -66,17 +61,13 @@ public class MasterGameTimer : MonoBehaviour
 
 	}
 
-	public void SetUIText ()
-	{
+	public void SetUIText () {
 		float timeLeft = timeStamp - Time.time;
-		if (timeLeft <= 0) {
-			
+		if (timeLeft <= 0 && LevelManager.timedGame==true) {
 			FinishAction ();
 			return;
 		}
 
-//		timeText.text = timeLeft.ToString("f2");
-//		float hours;
 
 		float time = timeLeft;
 		int minutes = Mathf.FloorToInt(time / 60);
@@ -85,21 +76,7 @@ public class MasterGameTimer : MonoBehaviour
 
 		string formattedTimerText = System.String.Format("{0:0}:{1:00}:{2:00}", minutes, seconds, milliseconds);
 		timeText.text = formattedTimerText;
-//		timeLeft.ToString("f2");
 
-//
-//		GetTimeValues (timeLeft, out hours, out minutes, out seconds, out miniseconds);
-//
-//		string m = string.Format ("{ 0:00}", miniseconds);
-//
-//		print ("m = " + m);
-//
-//		if (hours > 0)
-//			timeText.text = string.Format ("{ 0}:{ 1}", hours, minutes);
-//		else if (minutes > 0)
-//			timeText.text = string.Format ("{ 0}:{ 1}", minutes, seconds);
-//		else
-//			timeText.text = string.Format ("{ 0}:{ 1}", seconds, m);
 
 	}
 
@@ -111,12 +88,11 @@ public class MasterGameTimer : MonoBehaviour
 		miniseconds = (int)((time - hours * 3600 - minutes * 60 - seconds) * 100);
 	}
 
-	public void FinishAction ()
-	{
-		Debug.Log ("Boom");
+	public void FinishAction () {
 		timeText.text = "00:00";
+		gameOverPopUp.SetActive(true);
 		usingTimer = false;
-
+		musicManager.FadeOutMusic();
 	}
 
 	IEnumerator	LoseTime ()
@@ -124,7 +100,7 @@ public class MasterGameTimer : MonoBehaviour
 		{
 			while (true) {
 				yield return new WaitForSeconds (1f);
-				timeLeft--;
+				time--;
 			}
 		}
 	}

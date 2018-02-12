@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreDoor : MonoBehaviour {
 
 	public Sprite buttonPressed, doorOpen, buttonIdle;
-	public AudioSource doorPressedSound, doorOpenSound;
+	public AudioSource doorPressedSound;
 	public Player playerScript;
 	public ScoreManager scoreManager;
 
@@ -41,24 +41,20 @@ public class ScoreDoor : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D other) {
-		doorPressedSound.Play ();
-		spriteRenderer.sprite = buttonPressed;
-		playerScript = other.gameObject.GetComponent<Player> ();
-
-		if (this.transform.position.x < 0) {
-			scoreManager.SetPlayerOnLeftScoreDoor(playerScript);
-		} else {
-			scoreManager.SetPlayerOnRightScoreDoor(playerScript);
+		if (other.gameObject.tag == "Player"){
+			doorPressedSound.Play ();
+			spriteRenderer.sprite = buttonPressed;
+			playerScript = other.gameObject.GetComponent<Player> ();
+			playerScript.onScoreDoor = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		spriteRenderer.sprite = buttonIdle;
-		if (this.transform.position.x < 0) {
-			scoreManager.SetPlayerOnLeftScoreDoor(null);
-		} else {
-			scoreManager.SetPlayerOnRightScoreDoor(null);
+		if (other.gameObject.tag == "Player"){
+			spriteRenderer.sprite = buttonIdle;
+			playerScript.onScoreDoor = false;
 		}
+
 	}
 
 	public void OpenScoreDoor() {
