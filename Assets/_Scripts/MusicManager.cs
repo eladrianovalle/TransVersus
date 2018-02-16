@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour {
 
@@ -78,6 +79,7 @@ public class MusicManager : MonoBehaviour {
 		}
 	}
 
+
 	void Start()
 	{
 		themeVolume = 0.5f;
@@ -86,6 +88,14 @@ public class MusicManager : MonoBehaviour {
 		}
 	}
 
+
+
+	//New Scipt Added By Mike G so MusicManager does not interfere with Main Menu Music after a Game Over.
+	void OnLevelWasLoaded (int levelIndex) {
+		if (Application.loadedLevelName =="MainMenu") {
+			Destroy (gameObject);
+		}
+	}
 	void Update() 
 	{
 		redTrack.volume = Mathf.Lerp (redTrack.volume, redTrackVolume, Time.time * smoothing);
