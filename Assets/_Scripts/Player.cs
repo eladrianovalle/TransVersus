@@ -16,14 +16,16 @@ public class Player : MonoBehaviour {
 	private float stunnedTime = 2f;
 	private float stunnedTimer;
 
-	private float coolDownTime = 2f;
+	public float coolDownTime;
 	private float coolDownTimer;
 
 	public Sprite regularSprite;
 	public Sprite stunnedSprite;
 	public Sprite holdingBallSprite;
 
-	public bool hasBall;
+	public bool hasBall, onScoreDoor;
+
+	public ScoreManager scoreManager;
 
 	public enum PlayerID {
 		PlayerOne, PlayerTwo, PlayerThree, PlayerFour
@@ -50,6 +52,8 @@ public class Player : MonoBehaviour {
 		characterController = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D> ();
 		spriteR = GetComponentInChildren<SpriteRenderer>();
 		weapon.gameObject.SetActive (false);
+		hasBall = false;
+		onScoreDoor = false;
 	}
 	
 	void Update () {
@@ -61,10 +65,10 @@ public class Player : MonoBehaviour {
 
 		playerMovement = player.GetAxisRaw ("Move Horizontal");
 
-		if (hasBall) {
-			spriteR.sprite = holdingBallSprite;
-		} else {
+		if (!hasBall) {
 			spriteR.sprite = regularSprite;
+		} else {
+			spriteR.sprite = holdingBallSprite;
 		}
 		if (isStunned) {
 			playerMovement = 0f;
@@ -72,7 +76,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isJumping) {
-			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
+//			MusicManager.instance.PlaySFX (MusicManager.instance.jumpClip);
 //			Debug.Log (this.name + " is Jumping!!!");
 		}
 
@@ -86,6 +90,10 @@ public class Player : MonoBehaviour {
 
 		} 
 
+		if (onScoreDoor) {
+			scoreManager.checkScoreCondition = true;
+		}
+
 		if (stunnedTimer > 0) {
 			stunnedTimer -= Time.deltaTime;
 		} else {
@@ -95,7 +103,6 @@ public class Player : MonoBehaviour {
 
 		if (coolDownTimer > 0) {
 			coolDownTimer -= Time.deltaTime;
-			print ("cool down son"); 
 		} else {
 			usedWeapon = false;
 		}
@@ -108,7 +115,11 @@ public class Player : MonoBehaviour {
 
 	public void UsedWeapon() {
 		usedWeapon = true;
+		coolDownTime = Random.Range(1.25f, 2.75f);
 		coolDownTimer = coolDownTime;
 	}
 
+	public void DestroyGameObject (){
+		Destroy(this.gameObject);
+	}
 }

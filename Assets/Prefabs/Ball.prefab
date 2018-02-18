@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1293433219500214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 4773795234567720}
   m_RootOrder: 0
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58341004068683578
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -152,7 +152,13 @@ MonoBehaviour:
   canScore: 0
   isVisibe: 0
   scoreManager: {fileID: 0}
+  ballSpawner: {fileID: 114050939379315878}
   playerInPossession: {fileID: 0}
+  playerWhoDroppedBall: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  player3: {fileID: 0}
+  player4: {fileID: 0}
 --- !u!212 &212578288179372604
 SpriteRenderer:
   m_ObjectHideFlags: 1

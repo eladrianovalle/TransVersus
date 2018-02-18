@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour {
 	private float hitTimeFrame = .15f;
 	private float hitTimer;
 	private float thrustDirection = 20000f;
+	public float ballThrust;
 
 	void OnEnable()
 	{
@@ -53,6 +54,13 @@ public class Weapon : MonoBehaviour {
 
 			other.gameObject.GetComponent<Rigidbody2D> ().AddForce ((transform.right * thrust) + (transform.up * 0.3f), ForceMode2D.Force);
 			other.GetComponent<Player> ().GetStunned ();
+
+			Rigidbody2D ballRbody = other.gameObject.GetComponent<Rigidbody2D>();
+			ballRbody.AddForce(transform.up * ballThrust);
+
+
+		} else if (other.tag=="Ball"){
+
 		}
 	}
 }
