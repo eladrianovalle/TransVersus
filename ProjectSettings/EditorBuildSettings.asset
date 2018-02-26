@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Level1.unity
     guid: 5d4d2c29dac9c484b970bf1eeee166d2
+  - enabled: 0
+    path: Assets/_Scenes/MainMenu_Paul.unity
+    guid: 37e8dd2c230c646cdb46dd001ec8520b
+  - enabled: 0
+    path: Assets/_Scenes/Options_Paul.unity
+    guid: ff08398edf01f4c52b78ec8df05512ce
