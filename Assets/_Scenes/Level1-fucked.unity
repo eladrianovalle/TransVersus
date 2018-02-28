@@ -1048,7 +1048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &503413995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec48fb1b699784cdf9f0662a85ffa4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDownText: {fileID: 621697977}
+  countDownText: {fileID: 0}
   audioSource: {fileID: 294816689}
   CountDownCanvas: {fileID: 294816685}
 --- !u!114 &621697977
@@ -1928,11 +1928,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2837,7 +2837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1143586645
 Transform:
   m_ObjectHideFlags: 0
@@ -2863,6 +2863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 1978791659}
+  timeLeft: 0
 --- !u!1001 &1190248224
 Prefab:
   m_ObjectHideFlags: 0
@@ -3204,7 +3205,10 @@ MonoBehaviour:
   timeText: {fileID: 825726355}
   timeStamp: 0
   usingTimer: 0
+  levelManager: {fileID: 0}
   gameTimer: {fileID: 825726353}
+  gameOverPopUp: {fileID: 0}
+  musicManager: {fileID: 0}
 --- !u!114 &1324314202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3574,6 +3578,31 @@ Prefab:
       propertyPath: musicManager
       value: 
       objectReference: {fileID: 1727587689}
+    - target: {fileID: 114494677678882650, guid: d1f1e725c7e3f46ac90c9029976538ee,
+        type: 2}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 615918067}
+    - target: {fileID: 114494677678882650, guid: d1f1e725c7e3f46ac90c9029976538ee,
+        type: 2}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 968011576}
+    - target: {fileID: 114494677678882650, guid: d1f1e725c7e3f46ac90c9029976538ee,
+        type: 2}
+      propertyPath: player3
+      value: 
+      objectReference: {fileID: 1435186527}
+    - target: {fileID: 114494677678882650, guid: d1f1e725c7e3f46ac90c9029976538ee,
+        type: 2}
+      propertyPath: player4
+      value: 
+      objectReference: {fileID: 1192075467}
+    - target: {fileID: 114083626614313154, guid: d1f1e725c7e3f46ac90c9029976538ee,
+        type: 2}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1143586644}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1f1e725c7e3f46ac90c9029976538ee, type: 2}
   m_IsPrefabParent: 0

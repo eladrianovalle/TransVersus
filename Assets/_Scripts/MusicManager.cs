@@ -90,18 +90,25 @@ public class MusicManager : MonoBehaviour {
 
 
 
-	//New Scipt Added By Mike G so MusicManager does not interfere with Main Menu Music after a Game Over.
-	void OnLevelWasLoaded (int levelIndex) {
-		if (Application.loadedLevelName =="MainMenu") {
-			Destroy (gameObject);
-		}
-	}
+//	//New Scipt Added By Mike G so MusicManager does not interfere with Main Menu Music after a Game Over.
+//	void OnLevelWasLoaded (int levelIndex) {
+//		if (Application.loadedLevelName =="MainMenu") {
+//			Destroy (gameObject);
+//		}
+//	}
 	void Update() 
 	{
 		redTrack.volume = Mathf.Lerp (redTrack.volume, redTrackVolume, Time.time * smoothing);
 		blueTrack.volume = Mathf.Lerp (blueTrack.volume, blueTrackVolume, Time.time * smoothing);
 		bgTrack.volume = Mathf.Lerp (bgTrack.volume, themeVolume, Time.time * smoothing);
 		bgFilteredTrack.volume = Mathf.Lerp (bgFilteredTrack.volume, filteredThemeVolume, Time.time * smoothing);
+
+		Scene scene = SceneManager.GetActiveScene();
+		string currentScene = scene.name;
+		if (currentScene == "MainMenu"){
+			print ("Music Manager Destroyed");
+			Destroy(this.gameObject);
+		}
 	}
 
 	public void PlayRedTeamTheme()

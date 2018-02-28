@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 7714e58586f004681bf4d0f0751d7af8
-timeCreated: 1517631427
-=======
-guid: 47858d92d240145d192f25abb59c271d
-timeCreated: 1517542637
->>>>>>> 4a71c84c8ce68ba3dba96102b72361c6d7f3b3ee
+timeCreated: 1519827706
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -47,9 +42,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -86,6 +81,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
